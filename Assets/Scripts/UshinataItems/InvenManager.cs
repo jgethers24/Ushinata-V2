@@ -25,7 +25,7 @@ public class InvenManager : MonoBehaviour
     public EquippedSlot[] equippedSlot;
 
     public CardSlot[] cardSlot;
-
+    public PlayerDeck[] playerDeck;
     public ItemSO[] itemSOs;
     void Start()
     {
@@ -52,12 +52,14 @@ public class InvenManager : MonoBehaviour
             Time.timeScale = 1;
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(false);
+            CardMenu.SetActive(false);
         }
         else
         {
             Time.timeScale = 0;
             InventoryMenu.SetActive(true);
             EquipmentMenu.SetActive(false);
+            CardMenu.SetActive(false);
         }
     }
     void Equipment()
@@ -189,6 +191,11 @@ public class InvenManager : MonoBehaviour
         {
             equippedSlot[i].selectedShader.SetActive(false);
             equippedSlot[i].thisItemSelected = false;
+        }
+        for (int i = 0; i < playerDeck.Length; i++)
+        {
+            playerDeck[i].selectedShader.SetActive(false);
+            playerDeck[i].thisItemSelected = false;
         }
     }
 }

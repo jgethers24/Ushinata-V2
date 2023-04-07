@@ -106,6 +106,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
                     if (equipmentSOLibrary.equipmentSO[i].itemName == this.itemName)
                         equipmentSOLibrary.equipmentSO[i].PreviewEquipment();
                 }
+
             }
         }
         else

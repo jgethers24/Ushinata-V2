@@ -22,10 +22,16 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
 
 
     //===ITEM SLOT===//
-
+    public CardSlot[] deckSlot;  ///========================================================
 
     [SerializeField]
     private Image itemImage;
+
+    //===Deck Slots===//
+    [SerializeField]
+    private PlayerDeck deckSlot0, deckSlot1, deckSlot2, deckSlot3, deckSlot4, deckSlot5, deckSlot6
+    ,deckSlot7, deckSlot8, deckSlot9, deckSlot10, deckSlot11, deckSlot12, deckSlot13, deckSlot14;
+
 
     public GameObject selectedShader;
     public bool thisItemSelected;
@@ -79,21 +85,24 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
     }
     public void OnLeftClick()
     {
-        if (thisItemSelected)
+        if (isFull)
         {
-            bool usable = invenManager.UseItem(itemName);
-            if (usable)
+            if (thisItemSelected)
             {
-                Debug.Log("Using itemslot " + itemName + " " + this.quantity);
-                this.quantity -= 1;
-                if (this.quantity <= 0)
-                {
-                    EmptySlot();
-                }
+                AddCardToDeck();
+
             }
-
-            //invenManager.UseItem(itemName);
-
+            else
+            {
+                invenManager.DeselectAllSlots();
+                selectedShader.SetActive(true);
+                thisItemSelected = true;
+                //for (int i = 0; i < cardSOLibrary.equipmentSO.Length; i++)
+               // {
+                    //if (cardSOLibrary.equipmentSO[i].itemName == this.itemName)
+                        //cardSOLibrary.equipmentSO[i].PreviewEquipment();
+                //}
+            }
         }
         else
         {
@@ -102,13 +111,48 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
             thisItemSelected = true;
         }
     }
+    private void AddCardToDeck()
+    {
+            //if( deckSlot0.slotInUse)
+        if (!deckSlot0.slotInUse)
+            deckSlot0.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (deckSlot0.slotInUse && !deckSlot1.slotInUse)
+            deckSlot1.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot2.slotInUse)
+            deckSlot2.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot3.slotInUse)
+            deckSlot3.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot4.slotInUse)
+            deckSlot4.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot5.slotInUse)
+            deckSlot5.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot6.slotInUse)
+            deckSlot6.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot7.slotInUse)
+            deckSlot7.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot8.slotInUse)
+            deckSlot8.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot9.slotInUse)
+            deckSlot9.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot10.slotInUse)
+            deckSlot10.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot11.slotInUse)
+            deckSlot11.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot12.slotInUse)
+            deckSlot12.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot13.slotInUse)
+            deckSlot13.AddCardToDeck(itemSprite, itemName, itemDescription);
+        else if (itemType == ItemType.Card && !deckSlot14.slotInUse)
+            deckSlot14.AddCardToDeck(itemSprite, itemName, itemDescription);
 
+        EmptySlot();
+    }
     private void EmptySlot()
     {
         itemImage.sprite = emptySprite;
         isFull = false;
     }
-
+  
     public void OnRightClick()
     {
         // for dropping items check out NightRun studio https://www.youtube.com/watch?v=lgmmDGqBX4k&list=PLSR2vNOypvs6eIxvTu-rYjw2Eyw57nZrU&index=10
