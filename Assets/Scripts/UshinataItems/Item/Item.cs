@@ -5,6 +5,7 @@ using UnityEngine;
 //item pickup
 public class Item : MonoBehaviour
 {
+    public CardSO cardSo;
     public ItemSO itemSo;
     [SerializeField]
     private string itemName;

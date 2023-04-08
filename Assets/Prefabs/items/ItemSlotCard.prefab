@@ -307,11 +307,44 @@ MonoBehaviour:
   quantity: 0
   itemSprite: {fileID: 21300000, guid: 144aa74618b85974a9a50f612c2fa8fd, type: 3}
   isFull: 0
-  itemDescription: 
+  cardDescription: 
   emptySprite: {fileID: 21300000, guid: 250329ab5193f5840914e2ab1375248e, type: 3}
   itemType: 4
-  quantityText: {fileID: 706056164694562768}
+  cardDescriptionImage: {fileID: 0}
+  cardDescriptionNameText: {fileID: 0}
+  cardDescriptionText: {fileID: 0}
+  deckSlot: []
   itemImage: {fileID: 4480691759704146770}
+  deckSlot0: {fileID: 0}
+  deckSlot1: {fileID: 0}
+  deckSlot2: {fileID: 0}
+  deckSlot3: {fileID: 0}
+  deckSlot4: {fileID: 0}
+  deckSlot5: {fileID: 0}
+  deckSlot6: {fileID: 0}
+  deckSlot7: {fileID: 0}
+  deckSlot8: {fileID: 0}
+  deckSlot9: {fileID: 0}
+  deckSlot10: {fileID: 0}
+  deckSlot11: {fileID: 0}
+  deckSlot12: {fileID: 0}
+  deckSlot13: {fileID: 0}
+  deckSlot14: {fileID: 0}
+  CdeckSlot0: {fileID: 0}
+  CdeckSlot1: {fileID: 0}
+  CdeckSlot2: {fileID: 0}
+  CdeckSlot3: {fileID: 0}
+  CdeckSlot4: {fileID: 0}
+  CdeckSlot5: {fileID: 0}
+  CdeckSlot6: {fileID: 0}
+  CdeckSlot7: {fileID: 0}
+  CdeckSlot8: {fileID: 0}
+  CdeckSlot9: {fileID: 0}
+  CdeckSlot10: {fileID: 0}
+  CdeckSlot11: {fileID: 0}
+  CdeckSlot12: {fileID: 0}
+  CdeckSlot13: {fileID: 0}
+  CdeckSlot14: {fileID: 0}
   selectedShader: {fileID: 4812370301397884246}
   thisItemSelected: 0
 --- !u!1 &7537154647220294639

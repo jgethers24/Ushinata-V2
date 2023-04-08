@@ -8,8 +8,6 @@ using System;
 //functionally brackeys item script
 public class CardSlot : MonoBehaviour, IPointerClickHandler
 {
-    //public ItemSO itemSO;
-    //public EquipmentSO equipment;
     //===ITEM DATA===//
     public string itemName;
     public int quantity;
@@ -19,7 +17,9 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
     public Sprite emptySprite;
     public ItemType itemType;
 
-
+    public Image cardDescriptionImage;
+    public TMP_Text cardDescriptionNameText;
+    public TMP_Text cardDescriptionText;
 
     //===ITEM SLOT===//
     public CardSlot[] deckSlot;  ///========================================================
@@ -32,10 +32,14 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
     private PlayerDeck deckSlot0, deckSlot1, deckSlot2, deckSlot3, deckSlot4, deckSlot5, deckSlot6
     ,deckSlot7, deckSlot8, deckSlot9, deckSlot10, deckSlot11, deckSlot12, deckSlot13, deckSlot14;
 
+    [SerializeField]
+    private CombatPlayerDeck CdeckSlot0, CdeckSlot1, CdeckSlot2, CdeckSlot3, CdeckSlot4, CdeckSlot5, CdeckSlot6
+    , CdeckSlot7, CdeckSlot8, CdeckSlot9, CdeckSlot10, CdeckSlot11, CdeckSlot12, CdeckSlot13, CdeckSlot14;
 
     public GameObject selectedShader;
     public bool thisItemSelected;
     private InvenManager invenManager;
+    private CardSOLibrary cardSOLibrary;
 
 
 
@@ -43,6 +47,7 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
     {
         itemImage.sprite = emptySprite;
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
+        cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
     }
 
 
@@ -87,70 +92,136 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
     {
         if (isFull)
         {
+
             if (thisItemSelected)
             {
                 AddCardToDeck();
-
+                
             }
             else
             {
                 invenManager.DeselectAllSlots();
                 selectedShader.SetActive(true);
                 thisItemSelected = true;
-                //for (int i = 0; i < cardSOLibrary.equipmentSO.Length; i++)
-               // {
-                    //if (cardSOLibrary.equipmentSO[i].itemName == this.itemName)
-                        //cardSOLibrary.equipmentSO[i].PreviewEquipment();
-                //}
+                for (int i = 0; i < cardSOLibrary.cardSO.Length; i++)
+                {
+                    if (cardSOLibrary.cardSO[i].cardName == this.itemName)
+                        cardSOLibrary.cardSO[i].PreviewCard();
+                }
             }
         }
         else
         {
+
+            //TurnOffPreviewCard()
+            //GameObject.Find("CardStatManager").GetComponent<CardStats>().TurnOffPreviewStats();
             invenManager.DeselectAllSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;
+            //if (cardDescriptionImage.sprite == null)
+            //{
+            //    cardDescriptionImage.sprite = emptySprite;
+            //}
         }
     }
     private void AddCardToDeck()
     {
             //if( deckSlot0.slotInUse)
         if (!deckSlot0.slotInUse)
+        {
+            Debug.Log("pre");
             deckSlot0.AddCardToDeck(itemSprite, itemName, itemDescription);
+            Debug.Log("mid");
+            CdeckSlot0.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+            Debug.Log("post");
+        }
+            
         else if (deckSlot0.slotInUse && !deckSlot1.slotInUse)
+        {
             deckSlot1.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot1.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot2.slotInUse)
+        {
             deckSlot2.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot2.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot3.slotInUse)
+        {
             deckSlot3.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot3.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot4.slotInUse)
+        {
             deckSlot4.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot4.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot5.slotInUse)
+        {
             deckSlot5.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot5.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot6.slotInUse)
+        {
             deckSlot6.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot6.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot7.slotInUse)
+        {
             deckSlot7.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot7.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot8.slotInUse)
+        {
             deckSlot8.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot8.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot9.slotInUse)
+        {
             deckSlot9.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot9.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot10.slotInUse)
+        {
             deckSlot10.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot10.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot11.slotInUse)
+        {
             deckSlot11.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot11.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot12.slotInUse)
+        {
             deckSlot12.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot12.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot13.slotInUse)
+        {
             deckSlot13.AddCardToDeck(itemSprite, itemName, itemDescription);
+            CdeckSlot13.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
         else if (itemType == ItemType.Card && !deckSlot14.slotInUse)
+        {
             deckSlot14.AddCardToDeck(itemSprite, itemName, itemDescription);
-
+            CdeckSlot14.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
+        }
+        Debug.Log("should be emptying");
         EmptySlot();
     }
     private void EmptySlot()
     {
-        itemImage.sprite = emptySprite;
+        for (int i = 0; i < cardSOLibrary.cardSO.Length; i++)
+        {
+            if (cardSOLibrary.cardSO[i].cardName == this.itemName)
+                cardSOLibrary.cardSO[i].TurnOffPreviewStats();
+        }
         isFull = false;
+        itemImage.sprite = emptySprite;
+
+        //cardDescriptionNameText.text = "";
+        //cardDescriptionText.text = "";
+        //cardDescriptionImage.sprite = emptySprite;
     }
   
     public void OnRightClick()

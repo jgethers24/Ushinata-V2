@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InvenManager : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class InvenManager : MonoBehaviour
     public GameObject InventoryMenu;
     public GameObject EquipmentMenu;
     public GameObject CardMenu;
+    public GameObject CombatCardMenu;//===================================
 
     //private bool menuActivated;
     public ItemSlot[] itemSlot;
@@ -26,7 +28,10 @@ public class InvenManager : MonoBehaviour
 
     public CardSlot[] cardSlot;
     public PlayerDeck[] playerDeck;
+    public CombatPlayerDeck[] playerCombatDeck;//=============================
+
     public ItemSO[] itemSOs;
+    string sceneName;
     void Start()
     {
         if (instance != null)
@@ -38,12 +43,38 @@ public class InvenManager : MonoBehaviour
     }
     void Update()
     {
+        
         if (Input.GetButtonDown("Inventory"))
-            Inventory();
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            string sceneName = currentScene.name;
+            if (sceneName == "StartingZone")
+                Inventory();
+        }
+        
         if (Input.GetButtonDown("EquipmentMenu"))
-            Equipment();
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            string sceneName = currentScene.name;
+            if (sceneName == "StartingZone")
+                Equipment();
+        }
+            
         if (Input.GetButtonDown("CardMenu"))
-            Card();
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            string sceneName = currentScene.name;
+            if (sceneName == "StartingZone")
+                Card();
+        }
+        if (Input.GetButtonDown("CombatCardMenu"))
+        {
+            Scene currentScene = SceneManager.GetActiveScene();
+            string sceneName = currentScene.name;
+            if (sceneName == "StartingZone")
+                CombatCard();
+        }
+
     }
     void Inventory()
     {
@@ -53,6 +84,7 @@ public class InvenManager : MonoBehaviour
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(false);
             CardMenu.SetActive(false);
+            CombatCardMenu.SetActive(false);
         }
         else
         {
@@ -60,6 +92,7 @@ public class InvenManager : MonoBehaviour
             InventoryMenu.SetActive(true);
             EquipmentMenu.SetActive(false);
             CardMenu.SetActive(false);
+            CombatCardMenu.SetActive(false);
         }
     }
     void Equipment()
@@ -70,6 +103,7 @@ public class InvenManager : MonoBehaviour
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(false);
             CardMenu.SetActive(false);
+            CombatCardMenu.SetActive(false);
         }
         else
         {
@@ -77,6 +111,7 @@ public class InvenManager : MonoBehaviour
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(true);
             CardMenu.SetActive(false);
+            CombatCardMenu.SetActive(false);
         }
     }
     void Card()
@@ -87,6 +122,7 @@ public class InvenManager : MonoBehaviour
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(false);
             CardMenu.SetActive(false);
+            CombatCardMenu.SetActive(false);
         }
         else
         {
@@ -94,6 +130,26 @@ public class InvenManager : MonoBehaviour
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(false);
             CardMenu.SetActive(true);
+            CombatCardMenu.SetActive(false);
+        }
+    }
+    void CombatCard()
+    {
+        if (CombatCardMenu.activeSelf)
+        {
+            Time.timeScale = 1;
+            InventoryMenu.SetActive(false);
+            EquipmentMenu.SetActive(false);
+            CardMenu.SetActive(false);
+            CombatCardMenu.SetActive(false);
+        }
+        else
+        {
+            Time.timeScale = 0;
+            InventoryMenu.SetActive(false);
+            EquipmentMenu.SetActive(false);
+            CardMenu.SetActive(false);
+            CombatCardMenu.SetActive(true);
         }
     }
     public bool UseItem(string itemName)
@@ -117,14 +173,11 @@ public class InvenManager : MonoBehaviour
             {
                 for (int i = 0; i < cardSlot.Length; i++)
                 {
-                    Debug.Log("  x2  ");
                     if (cardSlot[i].isFull == false && cardSlot[i].itemName == itemName || cardSlot[i].quantity == 0)
                     {
-                        Debug.Log("  x3  ");
                         int leftOverItems = cardSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, itemType);//object ref
                         if (leftOverItems > 0)
                         {
-                            Debug.Log("  x4  ");
                             
                             leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType, itemObject); //object ref                 
                         }
@@ -136,14 +189,11 @@ public class InvenManager : MonoBehaviour
             {
                 for (int i = 0; i < itemSlot.Length; i++)
                 {
-                    Debug.Log("  x2  ");
                     if (itemSlot[i].isFull == false && itemSlot[i].itemName == itemName || itemSlot[i].quantity == 0)
                     {
-                        Debug.Log("  x3  ");
                         int leftOverItems = itemSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, itemType);//object ref
                         if (leftOverItems > 0)
                         {
-                            Debug.Log("  x4  ");
                             leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType, itemObject);  //object ref              
                         }
                         return leftOverItems;
@@ -196,6 +246,11 @@ public class InvenManager : MonoBehaviour
         {
             playerDeck[i].selectedShader.SetActive(false);
             playerDeck[i].thisItemSelected = false;
+        }
+        for (int i = 0; i < playerCombatDeck.Length; i++)//============================
+        {
+            playerCombatDeck[i].selectedShader.SetActive(false);
+            playerCombatDeck[i].thisItemSelected = false;
         }
     }
 }

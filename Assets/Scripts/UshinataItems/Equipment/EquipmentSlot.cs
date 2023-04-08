@@ -17,10 +17,9 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     public GameObject itemObject; //--------------------spawning object------------------------------//
     public Sprite emptySprite;
     public ItemType itemType;
-    //object ref
-
     private GameObject inGameMainHandObject;//--------------------spawning object------------------------------//
-
+   
+    
     //===ITEM SLOT===//
     [SerializeField]
     private Image itemImage;
