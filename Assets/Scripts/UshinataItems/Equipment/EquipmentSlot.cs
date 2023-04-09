@@ -93,7 +93,6 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
             if (thisItemSelected)
             {
                 EquipGear();
-
             }
             else
             {

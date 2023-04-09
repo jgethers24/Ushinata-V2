@@ -22,7 +22,7 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
     public TMP_Text cardDescriptionText;
 
     //===ITEM SLOT===//
-    public CardSlot[] deckSlot;  ///========================================================
+    //public CardSlot[] deckSlot;  ///========================================================
 
     [SerializeField]
     private Image itemImage;
@@ -30,7 +30,7 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
     //===Deck Slots===//
     [SerializeField]
     private PlayerDeck deckSlot0, deckSlot1, deckSlot2, deckSlot3, deckSlot4, deckSlot5, deckSlot6
-    ,deckSlot7, deckSlot8, deckSlot9, deckSlot10, deckSlot11, deckSlot12, deckSlot13, deckSlot14;
+    , deckSlot7, deckSlot8, deckSlot9, deckSlot10, deckSlot11, deckSlot12, deckSlot13, deckSlot14;
 
     [SerializeField]
     private CombatPlayerDeck CdeckSlot0, CdeckSlot1, CdeckSlot2, CdeckSlot3, CdeckSlot4, CdeckSlot5, CdeckSlot6
@@ -40,7 +40,6 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
     public bool thisItemSelected;
     private InvenManager invenManager;
     private CardSOLibrary cardSOLibrary;
-
 
 
     void Start()
@@ -92,15 +91,17 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
     {
         if (isFull)
         {
-
             if (thisItemSelected)
             {
-                AddCardToDeck();
                 
+                AddCardToDeck();
+                selectedShader.SetActive(false);
+                thisItemSelected = false;
             }
             else
             {
-                invenManager.DeselectAllSlots();
+
+                //invenManager.DeselectAllSlots();
                 selectedShader.SetActive(true);
                 thisItemSelected = true;
                 for (int i = 0; i < cardSOLibrary.cardSO.Length; i++)
@@ -112,21 +113,18 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+            selectedShader.SetActive(false);
+            thisItemSelected = false;
 
-            //TurnOffPreviewCard()
-            //GameObject.Find("CardStatManager").GetComponent<CardStats>().TurnOffPreviewStats();
-            invenManager.DeselectAllSlots();
+            /*invenManager.DeselectAllSlots();
+            //this.thisItemSelected = false;
             selectedShader.SetActive(true);
-            thisItemSelected = true;
-            //if (cardDescriptionImage.sprite == null)
-            //{
-            //    cardDescriptionImage.sprite = emptySprite;
-            //}
+            thisItemSelected = true;*/
         }
     }
     private void AddCardToDeck()
     {
-            //if( deckSlot0.slotInUse)
+        //if( deckSlot0.slotInUse)
         if (!deckSlot0.slotInUse)
         {
             Debug.Log("pre");
@@ -135,7 +133,7 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
             CdeckSlot0.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
             Debug.Log("post");
         }
-            
+
         else if (deckSlot0.slotInUse && !deckSlot1.slotInUse)
         {
             deckSlot1.AddCardToDeck(itemSprite, itemName, itemDescription);
@@ -223,11 +221,10 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
         //cardDescriptionText.text = "";
         //cardDescriptionImage.sprite = emptySprite;
     }
-  
+
     public void OnRightClick()
     {
         // for dropping items check out NightRun studio https://www.youtube.com/watch?v=lgmmDGqBX4k&list=PLSR2vNOypvs6eIxvTu-rYjw2Eyw57nZrU&index=10
         // i dont think i need that funtion rn
     }
-
 }

@@ -26,6 +26,7 @@ public class InvenManager : MonoBehaviour
     public EquipmentSlot[] equipmentSlot;
     public EquippedSlot[] equippedSlot;
 
+    public CardQueue[] cardQueue;
     public CardSlot[] cardSlot;
     public PlayerDeck[] playerDeck;
     public CombatPlayerDeck[] playerCombatDeck;//=============================
@@ -227,11 +228,13 @@ public class InvenManager : MonoBehaviour
             itemSlot[i].selectedShader.SetActive(false);
             itemSlot[i].thisItemSelected = false;
         }
-        for (int i = 0; i < cardSlot.Length; i++)
-        {
-            cardSlot[i].selectedShader.SetActive(false);
-            cardSlot[i].thisItemSelected = false;
-        }
+     //   for (int i = 0; i < cardSlot.Length; i++)
+     //   {
+     //       Debug.Log("post");
+     //       cardSlot[i].selectedShader.SetActive(false);
+     //       cardSlot[i].thisItemSelected = false;
+     //       Debug.Log("post2");
+     //   }
         for (int i = 0; i < equipmentSlot.Length; i++)
         {
             equipmentSlot[i].selectedShader.SetActive(false);
@@ -251,6 +254,13 @@ public class InvenManager : MonoBehaviour
         {
             playerCombatDeck[i].selectedShader.SetActive(false);
             playerCombatDeck[i].thisItemSelected = false;
+        }
+        for (int i = 0; i < cardQueue.Length; i++)
+        {
+            Debug.Log("post");
+            cardQueue[i].selectedShader.SetActive(false);
+            cardQueue[i].thisItemSelected = false;
+            Debug.Log("post2");
         }
     }
 }
