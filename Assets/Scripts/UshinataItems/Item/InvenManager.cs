@@ -24,16 +24,21 @@ public class InvenManager : MonoBehaviour
     public ItemSlot[] itemSlot;
     public EquipmentSlot[] equipmentSlot;
     public EquippedSlot[] equippedSlot;
-    
+
+    public CardQueue cardQueuee;
     public CardQueue[] cardQueue;
     public CardSlot[] cardSlot;
     public PlayerDeck[] playerDeck;
     public CombatPlayerDeck[] playerCombatDeck;
+    public bool deckShowing = false;
 
     public ItemSO[] itemSOs;
     string sceneName;
+    private float time;
+    public float interpolationPeriod = 1.0f;
     void Start()
     {
+        
         if (instance != null)
         {
             Debug.LogWarning("more than 1 instance of inventory found!!!!!!!");
@@ -43,7 +48,26 @@ public class InvenManager : MonoBehaviour
     }
     void Update()
     {
-        
+
+        time += Time.deltaTime;
+        if (cardQueue[1].slotInUse)
+            Debug.Log("inUse");
+
+        if (time >= interpolationPeriod)
+        {
+
+            time = 0.0f;
+            if (deckShowing == false)
+            {
+                Debug.Log("combat card menu button pressed");
+                if (cardQueue[0].slotInUse && !cardQueue[1].slotInUse || cardQueue[1].slotInUse && !cardQueue[2].slotInUse ||
+                    cardQueue[2].slotInUse && !cardQueue[3].slotInUse || cardQueue[3].slotInUse && !cardQueue[4].slotInUse)
+                    cardQueuee.CrunchQueue();
+
+                //CrunchQueue();
+            }
+        }
+
         if (Input.GetButtonDown("Inventory"))
         {
             Scene currentScene = SceneManager.GetActiveScene();
@@ -137,19 +161,23 @@ public class InvenManager : MonoBehaviour
     {
         if (CombatCardMenu.activeSelf)
         {
+            deckShowing = true;
             Time.timeScale = 1;
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(false);
             CardMenu.SetActive(false);
             CombatCardMenu.SetActive(false);
+            deckShowing = false;
         }
         else
         {
+            deckShowing = false;
             Time.timeScale = 0;
             InventoryMenu.SetActive(false);
             EquipmentMenu.SetActive(false);
             CardMenu.SetActive(false);
             CombatCardMenu.SetActive(true);
+            deckShowing = true;
         }
     }
     public bool UseItem(string itemName)
@@ -255,6 +283,7 @@ public class InvenManager : MonoBehaviour
             cardQueue[i].thisItemSelected = false;
         }
     }
+
 }
 
 public enum ItemType

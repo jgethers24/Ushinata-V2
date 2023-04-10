@@ -44,6 +44,10 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
     public bool thisItemSelected;
     [SerializeField]
     private Sprite emptySprite;
+
+    public GameObject CombatCardMenu;
+    //private float time;
+    //public float interpolationPeriod = 1.0f;
     void Start()
     {
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
@@ -51,11 +55,25 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
     }
     void Update()
     {
-        if (Input.GetButtonDown("CombatCardMenu") && invenManager.CombatCardMenu)
+        /*time += Time.deltaTime;
+        if(cardQueue[1].slotInUse)
+            Debug.Log("inUse");
+
+        if (time >= interpolationPeriod)
         {
-            Debug.Log("combat card menu button pressed");
-            CrunchQueue();
-        }
+
+            time = 0.0f;
+            if (invenManager.deckShowing==false)
+            {
+                Debug.Log("combat card menu button pressed");
+                if (cardQueue[0].slotInUse && !cardQueue[1].slotInUse || cardQueue[1].slotInUse && !cardQueue[2].slotInUse ||
+                    cardQueue[2].slotInUse && !cardQueue[3].slotInUse || cardQueue[3].slotInUse && !cardQueue[4].slotInUse)
+                    CrunchQueue();
+
+                //CrunchQueue();
+            }
+        }*/
+            
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -88,9 +106,9 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
     }
     void OnRightClick()
     {
-        Debug.Log("onRightClick");
+        //Debug.Log("onRightClick");
         CrunchQueue();
-        Debug.Log("afterRightClick");
+        //Debug.Log("afterRightClick");
     }
 
 
@@ -113,15 +131,15 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
         Debug.Log("in crunch queue");
         for (int i = 0; i < 5; i++)
         {
-            Debug.Log("in i queue");
-            Debug.Log("in crunch queue first for");
+            //Debug.Log("in i queue");
+            //Debug.Log("in crunch queue first for");
             for (int j = 4; j > 0; j--)
             {
-                Debug.Log("j = "+ j);
-                Debug.Log("second for");
+                //Debug.Log("j = "+ j);
+                //Debug.Log("second for");
                 if (!cardQueue[j].slotInUse && cardQueue[j - 1].slotInUse)
                 {
-                    Debug.Log("top of if");
+                    //Debug.Log("top of if");
                     //move card from [i-1] to [i]
                     cardQueue[j].itemSprite = cardQueue[j - 1].itemSprite;
                     cardQueue[j].cardImage.sprite = cardQueue[j - 1].cardImage.sprite;
@@ -133,7 +151,7 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
                     cardQueue[j - 1].itemName = "";
                     cardQueue[j - 1].itemDescription = "";
                     cardQueue[j - 1].slotInUse = false;
-                    Debug.Log("bottom of if");
+                    //Debug.Log("bottom of if");
                 }
             }
         }
