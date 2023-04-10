@@ -42,7 +42,6 @@ public class Item : MonoBehaviour
                 int leftOverItems = invenManager.AddItem(itemName, quantity, sprite, itemDescription,itemType, itemObject);//object ref
                 if (leftOverItems <= 0)
                 {
-                    Debug.Log("Picking up " + itemName);
                     Destroy(gameObject);
                 }
                 else

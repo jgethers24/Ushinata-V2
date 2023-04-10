@@ -60,25 +60,18 @@ public class PlayerDeck : MonoBehaviour, IPointerClickHandler
     }
     void OnLeftClick()
     {
-        
-        //Debug.Log("this slot is number: " + slotNumba + "  -");
-        //int thisSlot = playerCombatDeck.Length;
         if (thisItemSelected && slotInUse)
         {
             RemoveCardFromDeck();
             for (int i = 0; i < playerCombatDeck.Length ; i++)
             {
-                Debug.Log("  in the for loop  ");
                 if (playerCombatDeck[i].combatSlotNumber == cardSlotNumber)
                 {
-                    Debug.Log("  about to delete  ");
                     playerCombatDeck[i].DeleteCard();
                 }
 
             }        
         }
-            
-
         else
         {
             invenManager.DeselectAllSlots();
@@ -114,26 +107,14 @@ public class PlayerDeck : MonoBehaviour, IPointerClickHandler
         this.itemName = itemName;
         this.itemDescription = itemDescription;
         
-       // for (int i = 0; i < cardSOLibrary.cardSO.Length; i++)
-       // {
-            //if (cardSOLibrary.cardSO[i].cardName == this.itemName)
-                //cardSOLibrary.cardSO[i].EquipItem();
-        //}
         slotInUse = true;
 
     }
     public void RemoveCardFromDeck()
     {
-        Debug.Log("  - " +this.cardSlotNumber + " -  ");
         invenManager.DeselectAllSlots();
         invenManager.AddItem(itemName, 1, itemSprite, itemDescription, itemType, itemObject);
-        /*
-        //Update SlotImage
-        this.itemSprite = emptySprite;
-        slotImage.sprite = this.emptySprite;
-        slotInUse = false; */
 
-        //invenManager.DeselectAllSlots();
         //Update SlotImage
         this.itemSprite = emptySprite;
         slotImage.sprite = this.emptySprite;
@@ -144,7 +125,6 @@ public class PlayerDeck : MonoBehaviour, IPointerClickHandler
     }
     public void DeleteCard()
     {
-        //gonna have to change this to make it work to place cards into the Queue not into the card inventory. WITHOUT removing it from the combat inventory
         invenManager.DeselectAllSlots();
         //Update SlotImage
         this.itemSprite = emptySprite;

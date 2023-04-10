@@ -36,6 +36,8 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
     //OTHER VARIABLES//
     public bool slotInUse;
 
+    public CardQueue[] cardQueue;
+
     [SerializeField]
     public GameObject selectedShader;
     [SerializeField]
@@ -47,7 +49,14 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
         cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
     }
-
+    void Update()
+    {
+        if (Input.GetButtonDown("CombatCardMenu") && invenManager.CombatCardMenu)
+        {
+            Debug.Log("combat card menu button pressed");
+            CrunchQueue();
+        }
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
@@ -61,26 +70,10 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
     }
     void OnLeftClick()
     {
-
-        //Debug.Log("this slot is number: " + slotNumba + "  -");
-        //int thisSlot = playerCombatDeck.Length;
         if (thisItemSelected && slotInUse)
         {
             DeleteCard();
-            //RemoveCardFromDeck();
-            /*for (int i = 0; i < playerCombatDeck.Length; i++)
-            {
-                Debug.Log("  in the for loop  ");
-                if (playerCombatDeck[i].combatSlotNumber == cardSlotNumber)
-                {
-                    Debug.Log("  about to delete  ");
-                    playerCombatDeck[i].DeleteCard();
-                }
-
-            }*/
         }
-
-
         else
         {
             invenManager.DeselectAllSlots();
@@ -95,20 +88,14 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
     }
     void OnRightClick()
     {
-
+        Debug.Log("onRightClick");
+        CrunchQueue();
+        Debug.Log("afterRightClick");
     }
-    void Update()
-    {
 
-    }
 
     public void AddCardToQueue(Sprite itemSprite, string itemName, string itemDescription)
     {
-        //if something is already occupying equip slot
-        if (slotInUse)
-            Debug.Log("  addingCard ToQueue ");
-        //RemoveCardFromDeck();
-        //Update Image
         this.itemSprite = itemSprite;
         cardImage.sprite = this.itemSprite;
         cardName.enabled = false;
@@ -117,17 +104,44 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
         this.itemName = itemName;
         this.itemDescription = itemDescription;
 
-        // for (int i = 0; i < cardSOLibrary.cardSO.Length; i++)
-        // {
-        //if (cardSOLibrary.cardSO[i].cardName == this.itemName)
-        //cardSOLibrary.cardSO[i].EquipItem();
-        //}
         slotInUse = true;
 
     }
+
+    public void CrunchQueue()
+    {
+        Debug.Log("in crunch queue");
+        for (int i = 0; i < 5; i++)
+        {
+            Debug.Log("in i queue");
+            Debug.Log("in crunch queue first for");
+            for (int j = 4; j > 0; j--)
+            {
+                Debug.Log("j = "+ j);
+                Debug.Log("second for");
+                if (!cardQueue[j].slotInUse && cardQueue[j - 1].slotInUse)
+                {
+                    Debug.Log("top of if");
+                    //move card from [i-1] to [i]
+                    cardQueue[j].itemSprite = cardQueue[j - 1].itemSprite;
+                    cardQueue[j].cardImage.sprite = cardQueue[j - 1].cardImage.sprite;
+                    cardQueue[j].itemName = cardQueue[j - 1].itemName;
+                    cardQueue[j].itemDescription = cardQueue[j - 1].itemDescription;
+                    cardQueue[j].slotInUse = true;
+                    cardQueue[j - 1].itemSprite = emptySprite;
+                    cardQueue[j - 1].cardImage.sprite = emptySprite;
+                    cardQueue[j - 1].itemName = "";
+                    cardQueue[j - 1].itemDescription = "";
+                    cardQueue[j - 1].slotInUse = false;
+                    Debug.Log("bottom of if");
+                }
+            }
+        }
+        
+    }
+
     public void RemoveCardFromDeck()
     {
-        Debug.Log("  - " + this.cardSlotNumber + " -  ");
         invenManager.DeselectAllSlots();
         invenManager.AddItem(itemName, 1, itemSprite, itemDescription, itemType, itemObject);
         /*

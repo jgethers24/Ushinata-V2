@@ -74,7 +74,7 @@ public class CombatPlayerDeck : MonoBehaviour, IPointerClickHandler
             else
             {
 
-                //invenManager.DeselectAllSlots();
+                invenManager.DeselectAllSlots();
                 selectedShader.SetActive(true);
                 thisItemSelected = true;
                 for (int i = 0; i < cardSOLibrary.cardSO.Length; i++)
@@ -86,60 +86,29 @@ public class CombatPlayerDeck : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+            invenManager.DeselectAllSlots();
             selectedShader.SetActive(false);
             thisItemSelected = false;
-
-            /*invenManager.DeselectAllSlots();
-            //this.thisItemSelected = false;
-            selectedShader.SetActive(true);
-            thisItemSelected = true;*/
         }
-
-        /*if (thisItemSelected && slotInUse)
-        {
-
-        }
-        invenManager.DeselectAllSlots();
-        selectedShader.SetActive(true);
-        thisItemSelected = true;
-        for (int i = 0; i < cardSOLibrary.cardSO.Length; i++)
-        {
-            if (cardSOLibrary.cardSO[i].cardName == this.itemName)
-                cardSOLibrary.cardSO[i].PreviewCard();
-        }
-        */
     }
     void OnRightClick()
     {
 
     }
     void Update()
-    {
-        //cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
+    { 
+            
     }
     public void AddCardToCombatDeck(Sprite itemSprite, string itemName, string itemDescription)
     {
-        Debug.Log("addingcardto combat");
-        //if something is already occupying equip slot
         if (slotInUse)
         {
             RemoveCardFromCombatDeck();
-            Debug.Log("removed");
         }     
         //AddToCombatQueue();
 
         else
         {
-            Debug.Log("in the else");
-            /*for (int i = 0; i < cardSOLibrary.cardSO.Length; i++)
-            {
-                Debug.Log("in the for");
-                if (cardSOLibrary.cardSO[i].cardName == this.itemName)
-                    cardSOLibrary.cardSO[i].PreviewCard();
-            }*/
-
-
-            Debug.Log("past the for");
             //Update Image
             this.itemSprite = itemSprite;
             slotImage.sprite = this.itemSprite;
@@ -149,7 +118,6 @@ public class CombatPlayerDeck : MonoBehaviour, IPointerClickHandler
             this.itemName = itemName;
             this.itemDescription = itemDescription;
             slotInUse = true;
-            Debug.Log("exiting else");
         }
     }
     public void AddToCombatQueue()
@@ -158,29 +126,22 @@ public class CombatPlayerDeck : MonoBehaviour, IPointerClickHandler
         {
             queueSlot0.AddCardToQueue(itemSprite, itemName, itemDescription);
         }
-        else if (queueSlot0.slotInUse && !queueSlot1.slotInUse)
+        else if (/*queueSlot0.slotInUse &&*/ !queueSlot1.slotInUse)
         {
             queueSlot1.AddCardToQueue(itemSprite, itemName, itemDescription);
         }
-       /* else if (!queueSlot2.slotInUse)
+        else if (!queueSlot2.slotInUse)
         {
-            AddCardToQueue(itemSprite, itemName, itemDescription);
+            queueSlot2.AddCardToQueue(itemSprite, itemName, itemDescription);
         }
         else if (!queueSlot3.slotInUse)
         {
-            AddCardToQueue(itemSprite, itemName, itemDescription);
+            queueSlot3.AddCardToQueue(itemSprite, itemName, itemDescription);
         }
         else if (!queueSlot4.slotInUse)
         {
-            AddCardToQueue(itemSprite, itemName, itemDescription);
-        }*/
-        invenManager.DeselectAllSlots();
-        invenManager.AddItem(itemName, 1, itemSprite, itemDescription, itemType, itemObject);
-        //Update SlotImage
-        //this.itemSprite = emptySprite;
-        //slotImage.sprite = this.emptySprite;
-
-        //slotInUse = false;
+            queueSlot4.AddCardToQueue(itemSprite, itemName, itemDescription);
+        }
     }
     public void RemoveCardFromCombatDeck()
     {
@@ -193,8 +154,6 @@ public class CombatPlayerDeck : MonoBehaviour, IPointerClickHandler
     }
     public void DeleteCard()
     {
-        //gonna have to change this to make it work to place cards into the Queue not into the card inventory. WITHOUT removing it from the combat inventory
-        //invenManager.DeselectAllSlots();
         //Update SlotImage
         this.itemSprite = emptySprite;
         slotImage.sprite = this.emptySprite;

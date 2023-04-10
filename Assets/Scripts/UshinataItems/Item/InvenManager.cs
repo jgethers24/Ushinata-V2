@@ -19,17 +19,16 @@ public class InvenManager : MonoBehaviour
     public GameObject InventoryMenu;
     public GameObject EquipmentMenu;
     public GameObject CardMenu;
-    public GameObject CombatCardMenu;//===================================
+    public GameObject CombatCardMenu;
 
-    //private bool menuActivated;
     public ItemSlot[] itemSlot;
     public EquipmentSlot[] equipmentSlot;
     public EquippedSlot[] equippedSlot;
-
+    
     public CardQueue[] cardQueue;
     public CardSlot[] cardSlot;
     public PlayerDeck[] playerDeck;
-    public CombatPlayerDeck[] playerCombatDeck;//=============================
+    public CombatPlayerDeck[] playerCombatDeck;
 
     public ItemSO[] itemSOs;
     string sceneName;
@@ -37,7 +36,7 @@ public class InvenManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("mor than 1 instance of inventory found!!!!!!!");
+            Debug.LogWarning("more than 1 instance of inventory found!!!!!!!");
             return;
         }
         instance = this;
@@ -165,7 +164,6 @@ public class InvenManager : MonoBehaviour
         }
         return false;
     }
-    //object ref
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription,ItemType itemType, GameObject itemObject)
     {
         if (itemType == ItemType.Consumable || itemType== ItemType.none || itemType == ItemType.collectible || itemType== ItemType.Card)
@@ -218,8 +216,6 @@ public class InvenManager : MonoBehaviour
             }          
         }return quantity;
     }
-
-
         
     public void DeselectAllSlots()
     {
@@ -228,13 +224,11 @@ public class InvenManager : MonoBehaviour
             itemSlot[i].selectedShader.SetActive(false);
             itemSlot[i].thisItemSelected = false;
         }
-     //   for (int i = 0; i < cardSlot.Length; i++)
-     //   {
-     //       Debug.Log("post");
-     //       cardSlot[i].selectedShader.SetActive(false);
-     //       cardSlot[i].thisItemSelected = false;
-     //       Debug.Log("post2");
-     //   }
+        for (int i = 0; i < cardSlot.Length; i++)
+        {
+            cardSlot[i].selectedShader.SetActive(false);
+            cardSlot[i].thisItemSelected = false;
+        }
         for (int i = 0; i < equipmentSlot.Length; i++)
         {
             equipmentSlot[i].selectedShader.SetActive(false);
@@ -250,17 +244,15 @@ public class InvenManager : MonoBehaviour
             playerDeck[i].selectedShader.SetActive(false);
             playerDeck[i].thisItemSelected = false;
         }
-        for (int i = 0; i < playerCombatDeck.Length; i++)//============================
+        for (int i = 0; i < playerCombatDeck.Length; i++)
         {
             playerCombatDeck[i].selectedShader.SetActive(false);
             playerCombatDeck[i].thisItemSelected = false;
         }
         for (int i = 0; i < cardQueue.Length; i++)
         {
-            Debug.Log("post");
             cardQueue[i].selectedShader.SetActive(false);
             cardQueue[i].thisItemSelected = false;
-            Debug.Log("post2");
         }
     }
 }

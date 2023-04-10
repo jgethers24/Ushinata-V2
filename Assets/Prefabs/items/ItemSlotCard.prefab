@@ -307,13 +307,12 @@ MonoBehaviour:
   quantity: 0
   itemSprite: {fileID: 21300000, guid: 144aa74618b85974a9a50f612c2fa8fd, type: 3}
   isFull: 0
-  cardDescription: 
+  itemDescription: 
   emptySprite: {fileID: 21300000, guid: 250329ab5193f5840914e2ab1375248e, type: 3}
-  itemType: 4
+  itemType: 0
   cardDescriptionImage: {fileID: 0}
   cardDescriptionNameText: {fileID: 0}
   cardDescriptionText: {fileID: 0}
-  deckSlot: []
   itemImage: {fileID: 4480691759704146770}
   deckSlot0: {fileID: 0}
   deckSlot1: {fileID: 0}

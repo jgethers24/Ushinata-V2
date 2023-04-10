@@ -101,7 +101,7 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
             else
             {
 
-                //invenManager.DeselectAllSlots();
+                invenManager.DeselectAllSlots();
                 selectedShader.SetActive(true);
                 thisItemSelected = true;
                 for (int i = 0; i < cardSOLibrary.cardSO.Length; i++)
@@ -113,13 +113,13 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            selectedShader.SetActive(false);
-            thisItemSelected = false;
+            //selectedShader.SetActive(false);
+            //thisItemSelected = false;
 
-            /*invenManager.DeselectAllSlots();
+            invenManager.DeselectAllSlots();
             //this.thisItemSelected = false;
             selectedShader.SetActive(true);
-            thisItemSelected = true;*/
+            thisItemSelected = true;
         }
     }
     private void AddCardToDeck()
@@ -127,11 +127,8 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
         //if( deckSlot0.slotInUse)
         if (!deckSlot0.slotInUse)
         {
-            Debug.Log("pre");
             deckSlot0.AddCardToDeck(itemSprite, itemName, itemDescription);
-            Debug.Log("mid");
             CdeckSlot0.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
-            Debug.Log("post");
         }
 
         else if (deckSlot0.slotInUse && !deckSlot1.slotInUse)
@@ -204,7 +201,6 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
             deckSlot14.AddCardToDeck(itemSprite, itemName, itemDescription);
             CdeckSlot14.AddCardToCombatDeck(itemSprite, itemName, itemDescription);
         }
-        Debug.Log("should be emptying");
         EmptySlot();
     }
     private void EmptySlot()
