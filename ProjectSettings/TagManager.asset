@@ -8,7 +8,9 @@ TagManager:
   - Enemy
   - EnemyMovePoint
   - PlayerSpawnPoint
-  - location2
+  - Location1
+  - Location3
+  - Location2
   layers:
   - Default
   - TransparentFX
