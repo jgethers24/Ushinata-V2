@@ -22,7 +22,7 @@ public class PlayerCardSystem : MonoBehaviour
     private void Update()
     {
         bool isSpellCastHeldDown = Input.GetButtonDown("SpellCast");
-        bool hasEnoughMana = currentMana-spellToCast.spellToCast.manaCost >= 0f;
+        bool hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
 
         if(!castingMagic && isSpellCastHeldDown && hasEnoughMana)
         {

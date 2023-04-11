@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    private Vector2 direction;
+    private Vector3 direction;
     public float force;
 
-    public Vector2 velocity;
+    public Vector3 velocity;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +19,12 @@ public class EnemyBullet : MonoBehaviour
     void Update()
     {
         velocity = direction * force;
+        direction = Vector3.back;
     }
 
     private void FixedUpdate()
     {
-        Vector2 pos = transform.position;
+        Vector3 pos = transform.position;
         pos += velocity * Time.fixedDeltaTime;
         transform.position = pos;
     }

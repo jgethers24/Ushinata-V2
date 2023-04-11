@@ -4,6 +4,7 @@ using System.Threading;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering;
+using static UnityEditor.FilePathAttribute;
 using Random = UnityEngine.Random;
 
 
@@ -37,6 +38,7 @@ public class AIDetector : MonoBehaviour
 
     public GameObject bullet;
     public Transform bulletPos;
+    public int tpCounter;
     private float timer;
     private float randomLocation;
 
@@ -62,7 +64,7 @@ public class AIDetector : MonoBehaviour
         if(timer > 2)
         {
             randomLocation = Random.Range(0, 12);
-            if (randomLocation == 1)
+            if (randomLocation == 1) 
             {
                 TeleportEnemy(TP1Location);
                 timer = 0;
@@ -104,7 +106,7 @@ public class AIDetector : MonoBehaviour
                 timer = 0;
             }
 
-            if (randomLocation == 8)
+            else if (randomLocation == 8)
             {
                 TeleportEnemy(TP8Location);
                 timer = 0;
@@ -140,7 +142,6 @@ public class AIDetector : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Ok");
             shoot();
         }
     }
