@@ -25,7 +25,7 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
     private ItemType itemType = new ItemType();
     public int cardSlotNumber;
     private Sprite itemSprite;
-    private string itemName;
+    public string itemName;  //====================
     private string itemDescription;
     private GameObject itemObject;
 

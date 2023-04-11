@@ -7,12 +7,14 @@ using UnityEngine.EventSystems;
 
 public class PlayerCardSystem : MonoBehaviour
 {
-    [SerializeField] private Spell spellToCast;
+    [SerializeField] private Spell Stab, Fireball, SwordSlash,LazerBeam;
+    private Spell spellToCast;
     [SerializeField] private float maxMana = 100f;
     [SerializeField] private float currentMana;
     [SerializeField] private float manaRechargeRate = 2f;
     [SerializeField] private float timeBetweenCasts = 2f;
     private float currentCastTimer;
+    [SerializeField] private bool hasEnoughMana;
 
     [SerializeField] private Transform castPoint;
     
@@ -49,11 +51,7 @@ public class PlayerCardSystem : MonoBehaviour
     private Sprite emptySprite;
     public bool slotInUse;
 
-
-
-
-
-
+    private string q4Name;
 
     public void Start()
     {
@@ -69,12 +67,41 @@ public class PlayerCardSystem : MonoBehaviour
 
     private void Update()
     {
+        
+
+        q4Name = queueSlot.GetComponent<CardQueue>().itemName;
+
+        if (q4Name == "Fireball")//queueSlot.name == "Fireball")
+        {
+            spellToCast = Fireball;
+            hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
+            Debug.Log("casting fire");
+        }
+        else if (q4Name == "LazerBeam")
+        {
+            spellToCast = LazerBeam;
+            hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
+            Debug.Log("casting beam");
+        }
+        else if (q4Name == "SwordSlash")
+        {
+            spellToCast = SwordSlash;
+            hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
+            Debug.Log("casting slash");
+        }
+        else
+        {
+            spellToCast = Stab;
+            hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
+            Debug.Log("casting stab");
+        }
         bool testButton = Input.GetKeyDown(KeyCode.V);
         bool isSpellCastHeldDown = Input.GetButtonDown("SpellCast");
-        bool hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
+        //bool hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
 
         if(!castingMagic && isSpellCastHeldDown && hasEnoughMana)
         {
+            
             castingMagic = true;
             currentMana -= spellToCast.spellToCast.manaCost;
             

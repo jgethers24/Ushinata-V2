@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68fe06764d1adda498a4f057b0bfc3a8, type: 3}
-  m_Name: NewCardSO3
+  m_Script: {fileID: 11500000, guid: ee1e7730d0783824582de7187eaa0c2a, type: 3}
+  m_Name: Stab
   m_EditorClassIdentifier: 
-  cardName: NewCardSO3
-  itemDescription: pizza
-  power: 100
-  manaCost: 100
-  itemSprite: {fileID: 21300000, guid: f9161c6c9e06dc445ada3ee16d991f90, type: 3}
+  damageAmount: 10
+  manaCost: 0
+  lifetime: 0.1
+  speed: 10
+  spellRadius: 0.1

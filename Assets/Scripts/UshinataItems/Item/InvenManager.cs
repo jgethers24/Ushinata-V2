@@ -38,24 +38,11 @@ public class InvenManager : MonoBehaviour
     public float interpolationPeriod = 1.0f;
     void Start()
     {
-        //if (instance != null)
-        //{
-        //Debug.LogWarning("more than 1 instance of inventory found!!!!!!!");
-        //return;
-        //}
-        //instance = this;
+
     }
     void Update()
     {
 
-      //  time += Time.deltaTime;
-       // if (cardQueue[1].slotInUse)
-            //Debug.Log("inUse");
-
-       // if (time % interpolationPeriod <= 0.01f)
-       // {
-            //Debug.Log("intime");
-            //time = 0.0f;
             
         if (deckShowing == false)     
         {        

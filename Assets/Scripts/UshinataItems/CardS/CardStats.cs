@@ -45,6 +45,12 @@ public class CardStats : MonoBehaviour
         cardDescriptionPreText.text = cardDescription.ToString();
         cardNamePreText.text = cardName.ToString();
         previewImage.sprite = itemSprite;
+
+        combatPowerPreText.text = power.ToString();
+        combatManaCostPreText.text = manaCost.ToString();
+        CombatcardDescriptionPreText.text = cardDescription.ToString();
+        combatCardNamePreText.text = cardName.ToString();
+        combatPreviewImage.sprite = itemSprite;
         //selectedItemStats.SetActive(true);
         //selectedItemImage.SetActive(true);
         //cardDescriptionBox.SetActive(true);
@@ -56,6 +62,12 @@ public class CardStats : MonoBehaviour
         cardDescriptionPreText.text = "";
         cardNamePreText.text = "";
         previewImage.sprite = null;
+
+        combatPowerPreText.text = "";
+        combatManaCostPreText.text = "";
+        CombatcardDescriptionPreText.text = "";
+        combatCardNamePreText.text = "";
+        combatPreviewImage.sprite = null;
         //selectedItemStats.SetActive(false);
         //selectedItemImage.SetActive(false);
         //cardDescriptionBox.SetActive(false);
