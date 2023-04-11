@@ -38,7 +38,7 @@ public class AIDetector : MonoBehaviour
 
     public GameObject bullet;
     public Transform bulletPos;
-    public int tpCounter;
+    public float tpCounter;
     private float timer;
     private float randomLocation;
 
@@ -61,79 +61,176 @@ public class AIDetector : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > 2)
+        if (timer > 1.5)
         {
             randomLocation = Random.Range(0, 12);
-            if (randomLocation == 1) 
+            if (randomLocation == 1)
             {
-                TeleportEnemy(TP1Location);
-                timer = 0;
+                if (tpCounter != randomLocation)
+                {
+                    tpCounter = randomLocation;
+                    TeleportEnemy(TP1Location);
+                    timer = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, 12);
+                }
             }
 
             else if (randomLocation == 2)
             {
-                TeleportEnemy(TP2Location);
-                timer = 0;
+                if (tpCounter != randomLocation)
+                {
+                    tpCounter = randomLocation;
+                    TeleportEnemy(TP2Location);
+                    timer = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, 12);
+                }
             }
 
             else if (randomLocation == 3)
             {
-                TeleportEnemy(TP3Location);
-                timer = 0;
+                if (tpCounter != randomLocation)
+                {
+                    tpCounter = randomLocation;
+                    TeleportEnemy(TP3Location);
+                    timer = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, 12);
+                }
             }
 
             else if (randomLocation == 4)
             {
-                TeleportEnemy(TP4Location);
-                timer = 0;
+                if (tpCounter != randomLocation)
+                {
+                    tpCounter = randomLocation;
+                    TeleportEnemy(TP4Location);
+                    timer = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, 12);
+                }
             }
 
             else if (randomLocation == 5)
             {
-                TeleportEnemy(TP5Location);
-                timer = 0;
+                if (tpCounter != randomLocation)
+                {
+                    tpCounter = randomLocation;
+                    TeleportEnemy(TP5Location);
+                    timer = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, 12);
+                }
             }
 
             else if (randomLocation == 6)
             {
-                TeleportEnemy(TP6Location);
-                timer = 0;
+                if (tpCounter != randomLocation)
+                {
+                    tpCounter = randomLocation;
+                    TeleportEnemy(TP6Location);
+                    timer = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, 12);
+                }
+
             }
 
             else if (randomLocation == 7)
             {
-                TeleportEnemy(TP7Location);
-                timer = 0;
+                if (tpCounter != randomLocation)
+                {
+                    tpCounter = randomLocation;
+                    TeleportEnemy(TP7Location);
+                    timer = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, 12);
+                }
             }
 
             else if (randomLocation == 8)
             {
-                TeleportEnemy(TP8Location);
-                timer = 0;
+                if (tpCounter != randomLocation)
+                {
+                    tpCounter = randomLocation;
+                    TeleportEnemy(TP8Location);
+                    timer = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, 12);
+                }
             }
 
             else if (randomLocation == 9)
             {
-                TeleportEnemy(TP9Location);
-                timer = 0;
+                if (tpCounter != randomLocation)
+                {
+                    tpCounter = randomLocation;
+                    TeleportEnemy(TP9Location);
+                    timer = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, 12);
+                }
             }
 
             else if (randomLocation == 10)
             {
-                TeleportEnemy(TP10Location);
-                timer = 0;
+                if (tpCounter != randomLocation)
+                {
+                    tpCounter = randomLocation;
+                    TeleportEnemy(TP10Location);
+                    timer = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, 12);
+                }
             }
 
             else if (randomLocation == 11)
             {
-                TeleportEnemy(TP11Location);
-                timer = 0;
+                if (tpCounter != randomLocation)
+                {
+                    tpCounter = randomLocation;
+                    TeleportEnemy(TP11Location);
+                    timer = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, 12);
+                }
             }
 
             else if (randomLocation == 12)
             {
-                TeleportEnemy(TP12Location);
-                timer = 0;
+                if (tpCounter != randomLocation)
+                {
+                    tpCounter = randomLocation;
+                    TeleportEnemy(TP12Location);
+                    timer = 0;
+                }
+                else
+                {
+                    randomLocation = Random.Range(0, 12);
+                }
             }
         }
     }
