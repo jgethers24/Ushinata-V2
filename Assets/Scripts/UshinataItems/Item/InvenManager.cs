@@ -34,39 +34,39 @@ public class InvenManager : MonoBehaviour
 
     public ItemSO[] itemSOs;
     string sceneName;
-    private float time;
+    public float time;
     public float interpolationPeriod = 1.0f;
     void Start()
     {
-        
-        if (instance != null)
-        {
-            Debug.LogWarning("more than 1 instance of inventory found!!!!!!!");
-            return;
-        }
-        instance = this;
+        //if (instance != null)
+        //{
+        //Debug.LogWarning("more than 1 instance of inventory found!!!!!!!");
+        //return;
+        //}
+        //instance = this;
     }
     void Update()
     {
 
-        time += Time.deltaTime;
-        if (cardQueue[1].slotInUse)
-            Debug.Log("inUse");
+      //  time += Time.deltaTime;
+       // if (cardQueue[1].slotInUse)
+            //Debug.Log("inUse");
 
-        if (time >= interpolationPeriod)
-        {
-
-            time = 0.0f;
-            if (deckShowing == false)
-            {
-                Debug.Log("combat card menu button pressed");
-                if (cardQueue[0].slotInUse && !cardQueue[1].slotInUse || cardQueue[1].slotInUse && !cardQueue[2].slotInUse ||
+       // if (time % interpolationPeriod <= 0.01f)
+       // {
+            //Debug.Log("intime");
+            //time = 0.0f;
+            
+        if (deckShowing == false)     
+        {        
+            if (cardQueue[0].slotInUse && !cardQueue[1].slotInUse || cardQueue[1].slotInUse && !cardQueue[2].slotInUse ||
                     cardQueue[2].slotInUse && !cardQueue[3].slotInUse || cardQueue[3].slotInUse && !cardQueue[4].slotInUse)
-                    cardQueuee.CrunchQueue();
-
-                //CrunchQueue();
-            }
+            {
+                Debug.Log("crunching");
+                cardQueuee.CrunchQueue();
+            }  
         }
+       // }
 
         if (Input.GetButtonDown("Inventory"))
         {
@@ -86,17 +86,19 @@ public class InvenManager : MonoBehaviour
             
         if (Input.GetButtonDown("CardMenu"))
         {
-            Scene currentScene = SceneManager.GetActiveScene();
+            Card();
+            /*Scene currentScene = SceneManager.GetActiveScene();
             string sceneName = currentScene.name;
             if (sceneName == "StartingZone")
-                Card();
+                Card();*/
         }
         if (Input.GetButtonDown("CombatCardMenu"))
         {
-            Scene currentScene = SceneManager.GetActiveScene();
+            CombatCard();
+            /*Scene currentScene = SceneManager.GetActiveScene();
             string sceneName = currentScene.name;
             if (sceneName == "StartingZone")
-                CombatCard();
+                CombatCard();*/
         }
 
     }

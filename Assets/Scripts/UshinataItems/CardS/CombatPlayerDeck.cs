@@ -47,8 +47,13 @@ public class CombatPlayerDeck : MonoBehaviour, IPointerClickHandler
     {
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
         cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
+        
     }
-
+    public void Awake()
+    {
+        invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
+        cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)

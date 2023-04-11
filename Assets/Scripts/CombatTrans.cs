@@ -11,6 +11,11 @@ public class CombatTrans : MonoBehaviour
     public float EnemyDist;
     private float minEnDist = 3.0f;
 
+    public GameObject freeLookCamera;
+    public GameObject point;
+    public GameObject castPoint;
+
+
     [SerializeField] private Transform playerSpawnPoint;
     
 
@@ -20,9 +25,10 @@ public class CombatTrans : MonoBehaviour
     //public float speed = 1f;
     private void Start()
     {
+        
         //col = player.GetComponent<CapsuleCollider>();
         //startSpot = GameObject.FindGameObjectWithTag("PlayerSpawnPoint").transform;
- 
+
         //targetPoint.transform.Translate(0, 0, 1);
     }
     private void Update()
@@ -30,18 +36,24 @@ public class CombatTrans : MonoBehaviour
         EnemyDist = Vector3.Distance(player.transform.position, thisEnemy.transform.position);
         if (EnemyDist < minEnDist)
         {
-            //Vector3 target = new Vector3(startSpot.position.x, startSpot.position.y, startSpot.position.z);
-            //Vector3 newPos = Vector3.MoveTowards(player.transform.position, target, speed * Time.deltaTime);
-            //player.transform.Translate(newPos);
-            //float distance = Vector3.Distance(target, rb.position);
-            //player.(0, 0.63f, 3.87f);
             
+
 
             player.transform.position = playerSpawnPoint.transform.position;
             Physics.SyncTransforms();
 
             SceneManager.LoadScene(scenename);
-
+            Time.timeScale = 1;
+            player.GetComponent<CombatMovementPlayer>().enabled = true;
+            player.GetComponent<PlayerCardSystem>().enabled = true;
+            player.GetComponent<StarterAssets.ThirdPersonController>().enabled = false;
+            //player.GetComponent<StarterAssets.StarterAssetsInputs>().enabled = false;
+            //player.GetComponent<BasicRigidBodyPush>().enabled = false;
+            freeLookCamera.SetActive(false);
+            point.SetActive(true);
+            castPoint.SetActive(true);
+            player.SetActive(false);
+            player.SetActive(true);
 
             //combatSceneTransition();
         }

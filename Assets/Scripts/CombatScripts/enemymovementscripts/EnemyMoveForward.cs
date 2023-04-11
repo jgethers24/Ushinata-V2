@@ -26,12 +26,12 @@ public class EnemyMoveForward : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        Debug.Log("should be moving left");
+
         Vector3 target = new Vector3(targetPoint.position.x, targetPoint.position.y, targetPoint.position.z);
         Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.deltaTime);
         rb.MovePosition(newPos);
         float distance = Vector3.Distance(target, rb.position);
-        Debug.Log("targetX " + target.z + " rbPosition " + rb.position + " target " + target);
+
 
     }
 

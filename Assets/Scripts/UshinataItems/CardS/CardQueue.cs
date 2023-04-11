@@ -53,6 +53,11 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
         cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
     }
+    private void Awake()
+    {
+        invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
+        cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
+    }
     void Update()
     {
         /*time += Time.deltaTime;
