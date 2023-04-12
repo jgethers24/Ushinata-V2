@@ -45,12 +45,15 @@ public class CombatPlayerDeck : MonoBehaviour, IPointerClickHandler
     private Sprite emptySprite;
     void Start()
     {
+        
+        //slotImage.sprite = emptySprite;
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
         cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
         
     }
     public void Awake()
     {
+        //this.itemSprite = emptySprite;
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
         cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
     }
@@ -102,7 +105,8 @@ public class CombatPlayerDeck : MonoBehaviour, IPointerClickHandler
     }
     void Update()
     { 
-            
+            if(!slotInUse)
+            slotImage.sprite = emptySprite;
     }
     public void AddCardToCombatDeck(Sprite itemSprite, string itemName, string itemDescription)
     {

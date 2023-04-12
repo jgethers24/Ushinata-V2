@@ -90,7 +90,8 @@ public class PlayerDeck : MonoBehaviour, IPointerClickHandler
     }
     void Update()
     {
-        
+        if (!slotInUse)
+            slotImage.sprite = emptySprite;
     }
 
     public void AddCardToDeck(Sprite itemSprite, string itemName, string itemDescription)
