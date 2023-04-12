@@ -20,6 +20,7 @@ public class InvenManager : MonoBehaviour
     public GameObject EquipmentMenu;
     public GameObject CardMenu;
     public GameObject CombatCardMenu;
+    public GameObject MainMenu;
 
     public ItemSlot[] itemSlot;
     public EquipmentSlot[] equipmentSlot;
@@ -53,7 +54,10 @@ public class InvenManager : MonoBehaviour
                 cardQueuee.CrunchQueue();
             }  
         }
-       // }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Menu();
+        }
 
         if (Input.GetButtonDown("Inventory"))
         {
@@ -88,6 +92,21 @@ public class InvenManager : MonoBehaviour
                 CombatCard();*/
         }
 
+    }
+    void Menu()
+    {
+        if (MainMenu.activeSelf)
+        {
+            MainMenu.SetActive(false);
+        }
+        else
+        {
+            MainMenu.SetActive(true);
+            InventoryMenu.SetActive(false);
+            EquipmentMenu.SetActive(false);
+            CardMenu.SetActive(false);
+            CombatCardMenu.SetActive(false);
+        }
     }
     void Inventory()
     {

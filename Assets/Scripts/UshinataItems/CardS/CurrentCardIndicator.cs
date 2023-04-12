@@ -17,7 +17,7 @@ public class CurrentCardIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        uiCardImage.sprite = queueCard.imageForUI;
+        //uiCardImage.sprite = queueCard.imageForUI;
         //uiCardImage = queueSlot;
     }
 }
