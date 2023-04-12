@@ -11,6 +11,7 @@ TagManager:
   - Location1
   - Location3
   - Location2
+  - BackWall
   layers:
   - Default
   - TransparentFX

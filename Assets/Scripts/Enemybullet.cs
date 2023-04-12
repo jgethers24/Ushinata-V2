@@ -31,5 +31,9 @@ public class Enemybullet : MonoBehaviour
             Destroy(gameObject);
             damageScript.TakeDamage(10);
         }
+        else if (col.gameObject.name.Contains("BackWall"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

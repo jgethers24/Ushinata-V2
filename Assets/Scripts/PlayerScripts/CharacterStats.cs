@@ -44,10 +44,10 @@ public class CharacterStats : MonoBehaviour
         {           
             TakeDamage(10);
         }      
-        if(currentHealth <= 0)
+        /*if(currentHealth <= 0)
         {
             gameOver();
-        }
+        }*/
     }
     public void TakeDamage (int damage)
     {

@@ -6,8 +6,8 @@ public class EnemyStats : MonoBehaviour
 {
     public static EnemyStats instance;
 
-    [SerializeField] private float maxHealth = 50f;
-    private float currentHealth;
+    public float maxHealth;
+    public float currentHealth;
 
     public int strength;
     public int magic;
@@ -28,7 +28,6 @@ public class EnemyStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Debug.Log("ded");
             Destroy(this.gameObject);
         }
     }
