@@ -126,7 +126,7 @@ public class DummyKaiAI : MonoBehaviour
             }
         }
 
-        if (GetComponent<EnemyStats>().currentHealth == 50f)
+        if (GetComponent<EnemyStats>().currentHealth <= 50f)
         {
             bulletSpeed = 8;
             timer += Time.deltaTime;
