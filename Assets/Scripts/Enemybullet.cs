@@ -6,7 +6,12 @@ using UnityEngine;
 public class Enemybullet : MonoBehaviour
 {
     public float life = 3;
+    CharacterStats damageScript;
 
+    void Start()
+    {
+        damageScript = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStats>();
+    }
     // Start is called before the first frame update
     void Awake()
     {
@@ -24,6 +29,7 @@ public class Enemybullet : MonoBehaviour
         if (col.gameObject.name.Contains("Player"))
         {
             Destroy(gameObject);
+            damageScript.TakeDamage(10);
         }
     }
 }

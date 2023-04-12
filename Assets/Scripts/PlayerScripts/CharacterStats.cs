@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class CharacterStats : MonoBehaviour
@@ -42,7 +43,10 @@ public class CharacterStats : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {           
             TakeDamage(10);
-            Debug.Log("oof");
+        }      
+        if(currentHealth <= 0)
+        {
+            gameOver();
         }
     }
     public void TakeDamage (int damage)
@@ -50,17 +54,12 @@ public class CharacterStats : MonoBehaviour
         //damage -= armor.GetValue();
         //damage = Mathf.Clamp(damage, 0, int.MaxValue);
         currentHealth -= damage;
-        if(currentHealth <= 0)
-        {
-            isGameOver = true;
-        }
+
     }
-    /*public virtual void Die()
+    public void gameOver()
     {
-        //Die in some  way
-        //This is meant to be overwritten
-        Debug.Log("ded");
-    }*/
+        SceneManager.LoadScene(0);
+    }
     public int ChangeHealth(int amountToChangeStat)
     {
         
