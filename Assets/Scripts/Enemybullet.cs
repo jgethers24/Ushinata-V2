@@ -5,35 +5,24 @@ using UnityEngine;
 
 public class Enemybullet : MonoBehaviour
 {
-    private Vector3 direction;
-    public float force;
-    public Vector3 velocity;
+    public float life = 3;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        Destroy(gameObject,3);
+        Destroy(gameObject,life);
     }
 
     // Update is called once per frame
     void Update()
     {
-        velocity = direction * force;
-        direction = Vector3.back;
+
     }
 
-    private void FixedUpdate()
+    void OnCollisionEnter(Collision col)
     {
-        Vector3 pos = transform.position;
-        pos += velocity * Time.fixedDeltaTime;
-        transform.position = pos;
-    }
-
-    public void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.name.Contains("Player"))
         {
-            Debug.Log("collision");
             Destroy(gameObject);
         }
     }

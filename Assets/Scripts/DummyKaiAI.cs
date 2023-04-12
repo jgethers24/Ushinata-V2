@@ -36,15 +36,20 @@ public class DummyKaiAI : MonoBehaviour
     Vector3 TP11Location;
     Vector3 TP12Location;
 
-    public GameObject bullet;
+    public GameObject bulletPrefab;
     public Transform bulletPos;
+    public float bulletSpeed = 10;
+
     private float timer;
     private float randomLocation;
     private float attackDelay;
 
-    public PlayerLocationIndicator L1;
-    public PlayerLocationIndicator L2;
-    public PlayerLocationIndicator L3;
+    public position1TP L1;
+    public position2TP L2;
+    public position3TP L3;
+    public position1TP L4;
+    public position2TP L5;
+    public position3TP L6;
 
     void Start()
     {
@@ -67,46 +72,88 @@ public class DummyKaiAI : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > 1)
         {
-            if (L1.l1 == true)
+            if (L1.l1 == true || L4.l1 == true)
             {
                 randomLocation = Random.Range(0, 2);
                 if (randomLocation == 1)
                 {
                     TeleportEnemy(TP1Location);
+                    shoot();
                     timer = 0;
+                    /*if (attackDelay <= 0)
+                    {
+                        attackDelay = 2;
+                        shoot();
+                        timer = 0;
+                    }*/
                 }
                 else
                 {
                     TeleportEnemy(TP2Location);
                     timer = 0;
+                    shoot();
+                    /*if (attackDelay <= 0)
+                    {
+                        attackDelay = 2;
+                        shoot();
+                        timer = 0;
+                    }*/
                 }
             }
-            else if (L2.l2 == true)
+            else if (L2.l2 == true || L5.l2 == true)
             {
                 randomLocation = Random.Range(0, 2);
                 if (randomLocation == 1)
                 {
                     TeleportEnemy(TP5Location);
                     timer = 0;
+                    shoot();
+                    /*if (attackDelay <= 0)
+                    {
+                        attackDelay = 2;
+                        shoot();
+                        timer = 0;
+                    }*/
                 }
                 else
                 {
                     TeleportEnemy(TP6Location);
                     timer = 0;
+                    shoot();
+                    /*if (attackDelay <= 0)
+                    {
+                        attackDelay = 2;
+                        shoot();
+                        timer = 0;
+                    }*/
                 }
             }
-            else if (L3.l3 == true)
+            else if (L3.l3 == true || L6.l3 == true)
             {
                 randomLocation = Random.Range(0, 2);
                 if (randomLocation == 1)
                 {
                     TeleportEnemy(TP9Location);
                     timer = 0;
+                    shoot();
+                    /*if (attackDelay <= 0)
+                    {
+                        attackDelay = 2;
+                        shoot();
+                        timer = 0;
+                    }*/
                 }
                 else
                 {
                     TeleportEnemy(TP10Location);
                     timer = 0;
+                    shoot();
+                    /*if (attackDelay <= 0)
+                    {
+                        attackDelay = 2;
+                        shoot();
+                        timer = 0;
+                    }*/
                 }
             }
         }
@@ -117,11 +164,11 @@ public class DummyKaiAI : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            attackDelay = 1;
+            attackDelay = 2;
             shoot();
         }
     }
@@ -132,16 +179,16 @@ public class DummyKaiAI : MonoBehaviour
         {
             if (attackDelay <= 0)
             {
-                attackDelay = 1;
+                attackDelay = 2;
                 shoot();
             }
         }
-    }
+    }*/
 
     void shoot()
     {
-        Debug.Log("shooting");
-        Instantiate(bullet, bulletPos.position, Quaternion.identity);
+        var bullet = Instantiate(bulletPrefab, bulletPos.position, bulletPos.rotation);
+        bullet.GetComponent<Rigidbody>().velocity = bulletPos.forward * bulletSpeed;
     }
 
     void TeleportEnemy(Vector3 tPLocation)

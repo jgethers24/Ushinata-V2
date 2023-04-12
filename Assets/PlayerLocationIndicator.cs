@@ -24,14 +24,21 @@ public class PlayerLocationIndicator : MonoBehaviour
     {
         if (other.gameObject.tag == "Location1")
         {
+            l2 = false;
+            l3 = false;
             l1 = true;
         }
         else if (other.gameObject.tag == "Location2")
         {
+            l3 = false;
+            l1 = false;
             l2 = true;
+            
         }
         else if (other.gameObject.tag == "Location3")
         {
+            l1 = false;
+            l2 = false;
             l3 = true;
         }
     }

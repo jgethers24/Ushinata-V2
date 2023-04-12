@@ -21,6 +21,8 @@ public class CharacterStats : MonoBehaviour
     public int strength;
     public int magic;
     public int speed;
+
+    public static bool isGameOver;
     private void Awake()
     {  
         currentHealth = BasemaxHealth;
@@ -36,30 +38,29 @@ public class CharacterStats : MonoBehaviour
         
         
         //statChange =  statModifier.amountToChangeStat;
-        hP.text = "HP: " + currentHealth + "/" + maxHealth;
+        /*hP.text = "HP: " + currentHealth + "/" + maxHealth;
         if (Input.GetKeyDown(KeyCode.T))
         {           
             TakeDamage(10);
             Debug.Log("oof");
-        }
+        }*/
     }
     public void TakeDamage (int damage)
     {
         //damage -= armor.GetValue();
         //damage = Mathf.Clamp(damage, 0, int.MaxValue);
         currentHealth -= damage;
-        Debug.Log(transform.name + "takes" + damage + "damage.");
         if(currentHealth <= 0)
         {
-            Die();
+            isGameOver = true;
         }
     }
-    public virtual void Die()
+    /*public virtual void Die()
     {
         //Die in some  way
         //This is meant to be overwritten
         Debug.Log("ded");
-    }
+    }*/
     public int ChangeHealth(int amountToChangeStat)
     {
         
