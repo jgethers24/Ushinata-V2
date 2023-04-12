@@ -70,7 +70,7 @@ public class DummyKaiAI : MonoBehaviour
 
     void Update()
     {
-        if (GetComponent<EnemyStats>().currentHealth == 100f)
+        if (GetComponent<EnemyStats>().currentHealth > 50f)
         {
             timer += Time.deltaTime;
             if (timer > 1.4)
