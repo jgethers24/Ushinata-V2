@@ -35,15 +35,15 @@ public class CharacterStats : MonoBehaviour
     void Update()
     {
         //newMaxHealth = statModifier.ChangeHealth();
-        
-        
+
+        //hP.text = "HP: " + currentHealth + "/" + maxHealth;
         //statChange =  statModifier.amountToChangeStat;
-        /*hP.text = "HP: " + currentHealth + "/" + maxHealth;
+        hP.text = "HP: " + Mathf.FloorToInt(currentHealth) + "/" + maxHealth;
         if (Input.GetKeyDown(KeyCode.T))
         {           
             TakeDamage(10);
             Debug.Log("oof");
-        }*/
+        }
     }
     public void TakeDamage (int damage)
     {

@@ -8,14 +8,16 @@ using UnityEngine.EventSystems;
 public class PlayerCardSystem : MonoBehaviour
 {
     [SerializeField] private Spell Stab, Fireball, SwordSlash,LazerBeam;
+    [SerializeField] private SpellSO StabSO, FireballSO, SwordSlashSO, LazerBeamSO;
     private Spell spellToCast;
     [SerializeField] private float maxMana = 100f;
     [SerializeField] private float currentMana;
+    public TMP_Text mp;
     [SerializeField] private float manaRechargeRate = 2f;
     [SerializeField] private float timeBetweenCasts = 2f;
     private float currentCastTimer;
     [SerializeField] private bool hasEnoughMana;
-
+    private int spellManaCost;
     [SerializeField] private Transform castPoint;
     
     private bool castingMagic = false;
@@ -67,6 +69,7 @@ public class PlayerCardSystem : MonoBehaviour
 
     private void Update()
     {
+        mp.text = "MP: " + Mathf.FloorToInt(currentMana) + "/" + maxMana;
         
 
         q4Name = queueSlot.GetComponent<CardQueue>().itemName;
@@ -74,25 +77,29 @@ public class PlayerCardSystem : MonoBehaviour
         if (q4Name == "Fireball")//queueSlot.name == "Fireball")
         {
             spellToCast = Fireball;
-            hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
+            spellManaCost = FireballSO.manaCost;
+            hasEnoughMana = currentMana - spellManaCost >= 0f;
             Debug.Log("casting fire");
         }
         else if (q4Name == "LazerBeam")
         {
             spellToCast = LazerBeam;
-            hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
+            spellManaCost = LazerBeamSO.manaCost;
+            hasEnoughMana = currentMana - spellManaCost >= 0f;
             Debug.Log("casting beam");
         }
         else if (q4Name == "SwordSlash")
         {
             spellToCast = SwordSlash;
-            hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
+            spellManaCost = SwordSlashSO.manaCost;
+            hasEnoughMana = currentMana - spellManaCost >= 0f;
             Debug.Log("casting slash");
         }
         else
         {
             spellToCast = Stab;
-            hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
+            spellManaCost = StabSO.manaCost;
+            hasEnoughMana = currentMana - spellManaCost >= 0f;
             Debug.Log("casting stab");
         }
         bool testButton = Input.GetKeyDown(KeyCode.V);
@@ -103,9 +110,9 @@ public class PlayerCardSystem : MonoBehaviour
         {
             
             castingMagic = true;
-            currentMana -= spellToCast.spellToCast.manaCost;
-            
-            currentCastTimer = 0;
+            currentMana -= spellManaCost; 
+
+             currentCastTimer = 0;
             CastSpell();
             Debug.Log("casting a spell");
         }

@@ -10,6 +10,7 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
     //SLOT APPEARANCE//
     [SerializeField]
     private Image cardImage;
+    public Sprite imageForUI;
 
     //object ref
 
@@ -50,6 +51,7 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
     //public float interpolationPeriod = 1.0f;
     void Start()
     {
+        imageForUI = emptySprite;
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
         cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
     }
@@ -60,24 +62,7 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
     }
     void Update()
     {
-        /*time += Time.deltaTime;
-        if(cardQueue[1].slotInUse)
-            Debug.Log("inUse");
-
-        if (time >= interpolationPeriod)
-        {
-
-            time = 0.0f;
-            if (invenManager.deckShowing==false)
-            {
-                Debug.Log("combat card menu button pressed");
-                if (cardQueue[0].slotInUse && !cardQueue[1].slotInUse || cardQueue[1].slotInUse && !cardQueue[2].slotInUse ||
-                    cardQueue[2].slotInUse && !cardQueue[3].slotInUse || cardQueue[3].slotInUse && !cardQueue[4].slotInUse)
-                    CrunchQueue();
-
-                //CrunchQueue();
-            }
-        }*/
+        
             
     }
     public void OnPointerClick(PointerEventData eventData)
@@ -119,6 +104,7 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
 
     public void AddCardToQueue(Sprite itemSprite, string itemName, string itemDescription)
     {
+        imageForUI = itemSprite;
         this.itemSprite = itemSprite;
         cardImage.sprite = this.itemSprite;
         cardName.enabled = false;

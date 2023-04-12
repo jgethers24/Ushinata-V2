@@ -5,11 +5,11 @@ using UnityEngine;
 [CreateAssetMenu]
 public class SpellSO : ScriptableObject
 {
-    public float damageAmount = 10f;
-    public float manaCost = 5f;
-    public float lifetime = 2f;
-    public float speed = 15F;
-    public float spellRadius = 0.5f;
+    public float damageAmount;
+    public int manaCost;
+    public float lifetime;
+    public float speed;
+    public float spellRadius;
 
     //status effects
     //thumbnail
