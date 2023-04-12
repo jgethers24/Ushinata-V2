@@ -86,6 +86,7 @@ public class InvenManager : MonoBehaviour
         if (Input.GetButtonDown("CombatCardMenu"))
         {
             CombatCard();
+            cardQueuee.CrunchQueue();
             /*Scene currentScene = SceneManager.GetActiveScene();
             string sceneName = currentScene.name;
             if (sceneName == "StartingZone")
@@ -106,6 +107,7 @@ public class InvenManager : MonoBehaviour
             EquipmentMenu.SetActive(false);
             CardMenu.SetActive(false);
             CombatCardMenu.SetActive(false);
+
         }
     }
     void Inventory()
@@ -169,6 +171,7 @@ public class InvenManager : MonoBehaviour
     {
         if (CombatCardMenu.activeSelf)
         {
+            cardQueuee.CrunchQueue();
             deckShowing = true;
             Time.timeScale = 1;
             InventoryMenu.SetActive(false);
@@ -179,6 +182,7 @@ public class InvenManager : MonoBehaviour
         }
         else
         {
+            cardQueuee.CrunchQueue();
             deckShowing = false;
             Time.timeScale = 0;
             InventoryMenu.SetActive(false);
@@ -186,6 +190,7 @@ public class InvenManager : MonoBehaviour
             CardMenu.SetActive(false);
             CombatCardMenu.SetActive(true);
             deckShowing = true;
+            MainMenu.SetActive(false);
         }
     }
     public bool UseItem(string itemName)

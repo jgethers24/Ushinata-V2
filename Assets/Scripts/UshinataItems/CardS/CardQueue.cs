@@ -123,6 +123,7 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
 
     public void CrunchQueue()
     {
+        Update();
         Debug.Log("in crunch queue");
         for (int i = 0; i < 5; i++)
         {
@@ -183,5 +184,7 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
         this.itemDescription = "";
 
         slotInUse = false;
+        CrunchQueue();
+        
     }
 }

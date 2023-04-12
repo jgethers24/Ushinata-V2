@@ -79,28 +79,28 @@ public class PlayerCardSystem : MonoBehaviour
             spellToCast = Fireball;
             spellManaCost = FireballSO.manaCost;
             hasEnoughMana = currentMana - spellManaCost >= 0f;
-            Debug.Log("casting fire");
+            //Debug.Log("casting fire");
         }
         else if (q4Name == "LazerBeam")
         {
             spellToCast = LazerBeam;
             spellManaCost = LazerBeamSO.manaCost;
             hasEnoughMana = currentMana - spellManaCost >= 0f;
-            Debug.Log("casting beam");
+            //Debug.Log("casting beam");
         }
         else if (q4Name == "SwordSlash")
         {
             spellToCast = SwordSlash;
             spellManaCost = SwordSlashSO.manaCost;
             hasEnoughMana = currentMana - spellManaCost >= 0f;
-            Debug.Log("casting slash");
+            //Debug.Log("casting slash");
         }
         else
         {
             spellToCast = Stab;
             spellManaCost = StabSO.manaCost;
             hasEnoughMana = currentMana - spellManaCost >= 0f;
-            Debug.Log("casting stab");
+            //Debug.Log("casting stab");
         }
         bool testButton = Input.GetKeyDown(KeyCode.V);
         bool isSpellCastHeldDown = Input.GetButtonDown("SpellCast");
@@ -139,6 +139,8 @@ public class PlayerCardSystem : MonoBehaviour
         queueSlot.DeleteCard(); //cardQueue.DeleteCard();
         Instantiate(spellToCast, castPoint.position, castPoint.rotation);
         Debug.Log("instantiating spell");
+        //uiCardImage.sprite = cardQueue[4].itemSprite;
+        cardQueue.CrunchQueue();
     }
     public void DeleteCard()
     {

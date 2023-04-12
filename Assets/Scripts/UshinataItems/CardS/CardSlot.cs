@@ -44,11 +44,15 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
 
     void Start()
     {
-        itemImage.sprite = emptySprite;
+        
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
         cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
     }
-
+    void Update()
+    {
+        if (!isFull)
+            itemImage.sprite = emptySprite;
+    }
 
     public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType)//object ref
     {
