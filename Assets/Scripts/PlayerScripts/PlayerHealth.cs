@@ -21,4 +21,13 @@ public class PlayerHealth : MonoBehaviour
     {
         healthPoints.text = "HP: " + health + "/" + maxHealth;
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "bullet")
+        {
+            health -= 5;
+        }
+
+    }
 }
