@@ -140,6 +140,7 @@ public class DummyKaiAI : MonoBehaviour
 
     void shoot()
     {
+        Debug.Log("shooting");
         Instantiate(bullet, bulletPos.position, Quaternion.identity);
     }
 
