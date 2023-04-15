@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
 {
     public CardSO cardSo;
     public ItemSO itemSo;
+    //public EquipmentSO equipmentSO;-------------
     [SerializeField]
     private string itemName;
     [SerializeField]

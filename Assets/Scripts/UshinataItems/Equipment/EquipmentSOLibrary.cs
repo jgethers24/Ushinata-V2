@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class EquipmentSOLibrary : MonoBehaviour
 {
-    public EquipmentSO[] equipmentSO;
+    public ItemSO[] itemSO;
 }

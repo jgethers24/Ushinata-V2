@@ -99,17 +99,17 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
                 invenManager.DeselectAllSlots();
                 selectedShader.SetActive(true);
                 thisItemSelected = true;
-                for (int i = 0; i < equipmentSOLibrary.equipmentSO.Length; i++)
+                for (int i = 0; i < equipmentSOLibrary.itemSO.Length; i++)
                 {
-                    if (equipmentSOLibrary.equipmentSO[i].itemName == this.itemName)
-                        equipmentSOLibrary.equipmentSO[i].PreviewEquipment();
+                    if (equipmentSOLibrary.itemSO[i].itemName == this.itemName)
+                        equipmentSOLibrary.itemSO[i].PreviewEquipment();
                 }
 
             }
         }
         else
         {
-            GameObject.Find("StatManager").GetComponent<PlayerStats>().TurnOffPreviewStats();
+            //GameObject.Find("Player").GetComponent<CharacterStats>().TurnOffPreviewStats();
             invenManager.DeselectAllSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;
@@ -118,15 +118,14 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     }
     private void EquipGear()
     {
-        if (itemType == ItemType.Charm)
+        if (itemType == ItemType.Charm && charmSlot.slotInUse==false)
             charmSlot.EquipGear(itemSprite, itemName, itemDescription, itemObject);//object ref
-        if (itemType == ItemType.Weapon)
+        else if (itemType == ItemType.Weapon && weaponSlot.slotInUse == false)
         {
             weaponSlot.EquipGear(itemSprite, itemName, itemDescription, itemObject);//object ref
             inGameMainHandObject =  itemObject;  //--------------------spawning object------------------------------//
         }
-
-        if (itemType == ItemType.CursedGear)
+        else if (itemType == ItemType.CursedGear && cursedGearSlot.slotInUse == false)
             cursedGearSlot.EquipGear(itemSprite, itemName, itemDescription, itemObject);//object ref
 
         EmptySlot();

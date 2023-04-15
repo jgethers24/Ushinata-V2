@@ -30,8 +30,8 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
     private GameObject itemObject;
 
     private InvenManager invenManager;
-    private EquipmentSOLibrary equipmentSOLibrary;
 
+    private EquipmentSOLibrary equipmentSOLibrary;
     private void Start()
     {
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
@@ -66,16 +66,20 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
     void OnLeftClick()
     {
         if (thisItemSelected && slotInUse)
+        {
             UnEquipGear();
+            this.slotInUse = false;
+        }
+            
         else
         {
             invenManager.DeselectAllSlots();
             selectedShader.SetActive(true);
             thisItemSelected = true;
-            for (int i = 0; i < equipmentSOLibrary.equipmentSO.Length; i++)
+            for (int i = 0; i < equipmentSOLibrary.itemSO.Length; i++)
             {
-                if (equipmentSOLibrary.equipmentSO[i].itemName == this.itemName)
-                    equipmentSOLibrary.equipmentSO[i].PreviewEquipment();
+                if (equipmentSOLibrary.itemSO[i].itemName == this.itemName)
+                    equipmentSOLibrary.itemSO[i].PreviewEquipment();
             }
         }
     }
@@ -107,35 +111,39 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
         playerDisplayImage.sprite = itemSprite;
 
         //Update Player Stats
-        for (int i = 0; i < equipmentSOLibrary.equipmentSO.Length; i++)
+        for (int i = 0; i < equipmentSOLibrary.itemSO.Length; i++)
         {
-            if (equipmentSOLibrary.equipmentSO[i].itemName == this.itemName)
-                equipmentSOLibrary.equipmentSO[i].EquipItem();
+            if (equipmentSOLibrary.itemSO[i].itemName == this.itemName)
+                equipmentSOLibrary.itemSO[i].EquipItem();
         }
 
         slotInUse = true;
     }
     public void UnEquipGear()
     {
-        invenManager.DeselectAllSlots();
-        //object ref
-        invenManager.AddItem(itemName, 1, itemSprite, itemDescription, itemType, itemObject);
-        //Update SlotImage
-        this.itemSprite = emptySprite;
-        slotImage.sprite = this.emptySprite;
-        slotName.enabled = true;
-        //object ref
-
-        playerDisplayImage.sprite = emptySprite;
-
-        //Update Player Stats
-        for (int i = 0; i < equipmentSOLibrary.equipmentSO.Length; i++)
+        if (slotInUse)
         {
-            if (equipmentSOLibrary.equipmentSO[i].itemName == this.itemName)
-                equipmentSOLibrary.equipmentSO[i].UnEquipItem();
+            invenManager.DeselectAllSlots();
+            //object ref
+            invenManager.AddItem(itemName, 1, itemSprite, itemDescription, itemType, itemObject);
+
+            //Update SlotImage
+            this.itemSprite = emptySprite;
+            slotImage.sprite = this.emptySprite;
+            slotName.enabled = true;
+
+            playerDisplayImage.sprite = emptySprite;
+
+            //Update Player Stats
+            for (int i = 0; i < equipmentSOLibrary.itemSO.Length; i++)
+            {
+                if (equipmentSOLibrary.itemSO[i].itemName == this.itemName)
+                    equipmentSOLibrary.itemSO[i].UnEquipItem();
+            }
+            //GameObject.Find("StatManager").GetComponent<PlayerStats>().TurnOffPreviewStats(); ----------
+            slotInUse = false;
         }
-        GameObject.Find("StatManager").GetComponent<PlayerStats>().TurnOffPreviewStats();
-        slotInUse = false;
+        
     }
 
 }

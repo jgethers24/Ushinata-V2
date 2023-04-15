@@ -8,7 +8,13 @@ public class ItemSO : ScriptableObject
     public string itemName;
     public StatToChange statToChange = new StatToChange();
     public int amountToChangeStat;
-
+    
+    
+    //Wild Changes
+    public int strength, magic, speed, health;
+    [SerializeField]
+    private Sprite itemSprite;
+    //----------------------------
     public bool UseItem()
     {
         if (statToChange == StatToChange.hp)
@@ -35,6 +41,38 @@ public class ItemSO : ScriptableObject
             characterStats.ChangeHealth(amountToChangeStat);
         }
         return false;
+    }
+
+    //Wild Changes
+    public void PreviewEquipment()
+    {
+        /*GameObject.Find("StatManager").GetComponent<PlayerStats>().
+            PreviewEquipmentStats(strength, magic, speed, health, itemSprite);*/
+        GameObject.Find("Player").GetComponent<CharacterStats>().
+            PreviewEquipmentStats(strength, magic, speed, health, itemSprite);
+    }
+    public void EquipItem()
+    {
+        //Update Stats
+        CharacterStats characterStats = GameObject.Find("Player").GetComponent<CharacterStats>();
+        characterStats.strength += strength;
+        characterStats.magic += magic;
+        characterStats.speed += speed;
+        characterStats.maxHealth += health;
+
+        characterStats.UpdateEquipmentStats();
+    }
+
+    public void UnEquipItem()
+    {
+        //Update Stats
+        CharacterStats characterStats = GameObject.Find("Player").GetComponent<CharacterStats>();
+        characterStats.strength -= strength;
+        characterStats.magic -= magic;
+        characterStats.speed -= speed;
+        characterStats.maxHealth -= health;
+
+        characterStats.UpdateEquipmentStats();
     }
 }
     public enum StatToChange

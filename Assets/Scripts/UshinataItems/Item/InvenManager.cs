@@ -33,6 +33,7 @@ public class InvenManager : MonoBehaviour
     public CombatPlayerDeck[] playerCombatDeck;
     public bool deckShowing = false;
 
+    //public EquipmentSO[] equipmentSOs;---------------
     public ItemSO[] itemSOs;
     string sceneName;
     public float time;
@@ -77,20 +78,18 @@ public class InvenManager : MonoBehaviour
             
         if (Input.GetButtonDown("CardMenu"))
         {
-            Card();
-            /*Scene currentScene = SceneManager.GetActiveScene();
+            Scene currentScene = SceneManager.GetActiveScene();
             string sceneName = currentScene.name;
             if (sceneName == "StartingZone")
-                Card();*/
+                Card();
         }
         if (Input.GetButtonDown("CombatCardMenu"))
         {
-            CombatCard();
             cardQueuee.CrunchQueue();
-            /*Scene currentScene = SceneManager.GetActiveScene();
+            Scene currentScene = SceneManager.GetActiveScene();
             string sceneName = currentScene.name;
-            if (sceneName == "StartingZone")
-                CombatCard();*/
+            if (sceneName == "CombatScene2")
+                CombatCard();
         }
 
     }

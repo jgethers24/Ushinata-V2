@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int strength, magic, speed;
+    /*
+    public int strength, magic, speed, health;
 
     [SerializeField]
-    private TMP_Text strengthText, magicText, speedText;
+    private TMP_Text strengthText, magicText, speedText, healthText;
 
     [SerializeField]
-    private TMP_Text strengthPreText, magicPreText, speedPreText;
+    private TMP_Text strengthPreText, magicPreText, speedPreText, healthPreText;
     [SerializeField]
     private Image previewImage;
 
@@ -30,13 +31,15 @@ public class PlayerStats : MonoBehaviour
         strengthText.text = strength.ToString();
         magicText.text = magic.ToString();
         speedText.text = speed.ToString();
+        healthText.text = health.ToString();
     }
 
-    public void PreviewEquipmentStats(int strength,int magic, int speed, Sprite itemSprite)
+    public void PreviewEquipmentStats(int strength,int magic, int speed, int health, Sprite itemSprite)
     {
         strengthPreText.text = strength.ToString();
         magicPreText.text = magic.ToString();
         speedPreText.text = speed.ToString();
+        healthPreText.text = health.ToString();
 
         previewImage.sprite = itemSprite;
         selectedItemStats.SetActive(true);
@@ -47,5 +50,5 @@ public class PlayerStats : MonoBehaviour
         selectedItemStats.SetActive(false);
         selectedItemImage.SetActive(false);
     }
-
+    */
 }

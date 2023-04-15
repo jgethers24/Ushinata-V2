@@ -11711,7 +11711,7 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: 60c35420f1ca7da4a9d34dde9b6a9a1a, type: 3}
   isFull: 0
   itemDescription: 
-  itemObject: {fileID: 702811854687926881}
+  itemObject: {fileID: 0}
   emptySprite: {fileID: 21300000, guid: 250329ab5193f5840914e2ab1375248e, type: 3}
   itemType: 0
   itemImage: {fileID: 5928720960239897800}
@@ -13973,7 +13973,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4654940657686987703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.86, y: 0, z: 2.75}
+  m_LocalPosition: {x: 4.48, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14074,7 +14074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5589943565394212857}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.51, y: -5.03, z: 4.67}
+  m_LocalPosition: {x: 3.87, y: -6.28, z: 7.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14795,6 +14795,15 @@ MonoBehaviour:
   strength: 0
   magic: 0
   speed: 0
+  strengthText: {fileID: 0}
+  magicText: {fileID: 0}
+  speedText: {fileID: 0}
+  healthText: {fileID: 0}
+  strengthPreText: {fileID: 0}
+  magicPreText: {fileID: 0}
+  speedPreText: {fileID: 0}
+  healthPreText: {fileID: 0}
+  previewImage: {fileID: 0}
   baseValue: 0
 --- !u!222 &694193560183697767
 CanvasRenderer:
@@ -15014,7 +15023,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5754050975967813974}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.33, y: -5.03, z: 10.18}
+  m_LocalPosition: {x: 3.59, y: -6.17, z: 10.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18908,30 +18917,6 @@ MonoBehaviour:
   selectedShader: {fileID: 3905763857139560331}
   thisItemSelected: 0
   emptySprite: {fileID: 21300000, guid: 250329ab5193f5840914e2ab1375248e, type: 3}
---- !u!114 &1365281296656073793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6436976840140330992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7291b533779054599ce8b962079f6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strength: 3
-  magic: 2
-  speed: 5
-  strengthText: {fileID: 2390774606321053966}
-  magicText: {fileID: 1944327335035502620}
-  speedText: {fileID: 6813987833707073210}
-  strengthPreText: {fileID: 3047339272603817434}
-  magicPreText: {fileID: 67538585106318377}
-  speedPreText: {fileID: 5944288030878171584}
-  previewImage: {fileID: 3370185406507509173}
-  selectedItemStats: {fileID: 6625922038828156450}
-  selectedItemImage: {fileID: 8290271361967701360}
 --- !u!222 &1368276083075233906
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19350,7 +19335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5891982616068744391}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.83, y: -5.554386, z: 8.32}
+  m_LocalPosition: {x: 3.74, y: -5.554386, z: 8.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -20002,6 +19987,7 @@ GameObject:
   - component: {fileID: 17881392933863656}
   - component: {fileID: 1575941062037059457}
   - component: {fileID: 6470329103196630436}
+  - component: {fileID: 6470329103196630437}
   m_Layer: 5
   m_Name: InventoryCanvas
   m_TagString: Untagged
@@ -21774,7 +21760,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6811505070223656486}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.62, y: 0, z: -2.55}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22485,7 +22471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6687376143281311881}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.85, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26638,7 +26624,7 @@ GameObject:
   - component: {fileID: 7638406061564727696}
   - component: {fileID: 5284067627833587803}
   m_Layer: 5
-  m_Name: StatPanel
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31518,21 +31504,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3963132872288755060}
   m_CullTransparentMesh: 1
---- !u!4 &3387595258385984526
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6436976840140330992}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -74.03357, y: -442.83118, z: 68.5034}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8900270390268611691}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3389540014493806901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33738,7 +33709,7 @@ MonoBehaviour:
   itemSo: {fileID: 11400000, guid: 297eb11a11e25aa4e9582d32370de637, type: 2}
   itemName: charmx
   quantity: 1
-  sprite: {fileID: 21300000, guid: 874d8401331ede14087e8d8d486ddda6, type: 3}
+  sprite: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
   itemDescription: charmy
   itemObject: {fileID: 1669189652819158177}
   player: {fileID: 5114949010678350459}
@@ -35116,8 +35087,8 @@ RectTransform:
   m_Children:
   - {fileID: 3398770887683848035}
   - {fileID: 8531845190164022157}
-  - {fileID: 1108835277485650487}
   - {fileID: 543037660702757410}
+  - {fileID: 1108835277485650487}
   m_Father: {fileID: 3123415346873283688}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38497,7 +38468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cursed Gear
+  m_text: Weapon
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -38624,9 +38595,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1447743973827863132}
   - {fileID: 8322344222780328794}
   - {fileID: 4874275238047057226}
-  - {fileID: 1447743973827863132}
   - {fileID: 723271264188770253}
   - {fileID: 594639596285358434}
   - {fileID: 1649036395112613365}
@@ -39160,7 +39131,7 @@ GameObject:
   - component: {fileID: 4410337013300824067}
   - component: {fileID: 3648237704251157534}
   m_Layer: 5
-  m_Name: StatPanel (1)
+  m_Name: strength
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39897,7 +39868,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 465852084348126161}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.54, y: -5.03, z: 2.56}
+  m_LocalPosition: {x: 3.84, y: -6.18, z: 4.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -40775,7 +40746,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Charm
+  m_text: Cursed Gear
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -41091,12 +41062,12 @@ PrefabInstance:
     - target: {fileID: 2346473370460277072, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000023405786
+      value: 0.00000006652268
       objectReference: {fileID: 0}
     - target: {fileID: 2346473370460277072, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000001784651
+      value: -0.00000005072242
       objectReference: {fileID: 0}
     - target: {fileID: 3004505308054445968, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
@@ -41121,12 +41092,12 @@ PrefabInstance:
     - target: {fileID: 3004505308054445968, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000042382204
+      value: 0.000000003292871
       objectReference: {fileID: 0}
     - target: {fileID: 3004505308054445968, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000033905764
+      value: -0.0000000026342968
       objectReference: {fileID: 0}
     - target: {fileID: 3635283587256421650, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
@@ -41215,9 +41186,74 @@ PrefabInstance:
       objectReference: {fileID: 3087145846425800485}
     - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
+      propertyPath: magic
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
+      propertyPath: strength
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
       propertyPath: BaseSpeed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
+      propertyPath: baseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
+      propertyPath: magicText
+      value: 
+      objectReference: {fileID: 1944327335035502620}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
+      propertyPath: speedText
+      value: 
+      objectReference: {fileID: 6813987833707073210}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 6396979226097227639}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
+      propertyPath: magicPreText
+      value: 
+      objectReference: {fileID: 3114137640185988748}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
+      propertyPath: previewImage
+      value: 
+      objectReference: {fileID: 3370185406507509173}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
+      propertyPath: speedPreText
+      value: 
+      objectReference: {fileID: 7349904570142056443}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
+      propertyPath: strengthText
+      value: 
+      objectReference: {fileID: 2390774606321053966}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
+      propertyPath: healthPreText
+      value: 
+      objectReference: {fileID: 1179728562421073452}
+    - target: {fileID: 4819306326024339739, guid: 659400d6002fe4349a49da15866032e6,
+        type: 3}
+      propertyPath: strengthPreText
+      value: 
+      objectReference: {fileID: 6814744604393033537}
     - target: {fileID: 5267191961547778424, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -41276,12 +41312,12 @@ PrefabInstance:
     - target: {fileID: 6192446880622910894, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0000000074216286
+      value: -0.000000021755968
       objectReference: {fileID: 0}
     - target: {fileID: 6192446880622910894, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000053912896
+      value: 0.000000015804185
       objectReference: {fileID: 0}
     - target: {fileID: 6985298253288889293, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
@@ -41306,12 +41342,12 @@ PrefabInstance:
     - target: {fileID: 6985298253288889293, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000000063774803
+      value: -0.0000000023982998
       objectReference: {fileID: 0}
     - target: {fileID: 6985298253288889293, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000022370996
+      value: 8.412782e-10
       objectReference: {fileID: 0}
     - target: {fileID: 7600546579854908309, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
@@ -41497,7 +41533,7 @@ GameObject:
   - component: {fileID: 2783641753491386541}
   - component: {fileID: 1763492064864961287}
   m_Layer: 5
-  m_Name: StatPanel (3)
+  m_Name: speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45738,7 +45774,7 @@ GameObject:
   - component: {fileID: 2888253275385032765}
   - component: {fileID: 8982910659436768623}
   m_Layer: 0
-  m_Name: testWeapon
+  m_Name: Weaponx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45884,7 +45920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669189652819158177}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.95, y: 0, z: -0.36}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50250,23 +50286,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &6436976840140330992
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3387595258385984526}
-  - component: {fileID: 1365281296656073793}
-  m_Layer: 0
-  m_Name: StatManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!114 &6440664319313227343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50493,6 +50512,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f21d610475ffbe14cac64d613351bd81, type: 2}
   - {fileID: 11400000, guid: b93f4c4b068d6874f8319c90e8b816bc, type: 2}
   - {fileID: 11400000, guid: 508b740dac36c5e4d9a70dd8a5f22a7f, type: 2}
+--- !u!114 &6470329103196630437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540447151624054733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79833d79ebe35440a6721b1eb6ac82d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSO:
+  - {fileID: 11400000, guid: 05ddd34e989844349b7f245430acf748, type: 2}
+  - {fileID: 11400000, guid: 8ff5a7e9c4644b8469d148a81c1a5f0b, type: 2}
+  - {fileID: 11400000, guid: 297eb11a11e25aa4e9582d32370de637, type: 2}
 --- !u!1 &6477688609435878721
 GameObject:
   m_ObjectHideFlags: 0
@@ -52645,7 +52680,7 @@ GameObject:
   - component: {fileID: 8049624302604342159}
   - component: {fileID: 4955595486415691472}
   m_Layer: 0
-  m_Name: testWeapon
+  m_Name: Weaponx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59025,7 +59060,7 @@ GameObject:
   - component: {fileID: 5208613670636626119}
   - component: {fileID: 4119251424155659}
   m_Layer: 5
-  m_Name: StatPanel (2)
+  m_Name: magic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64910,7 +64945,6 @@ Transform:
   m_Children:
   - {fileID: 1729646785344276020}
   - {fileID: 6751145236410666743}
-  - {fileID: 3387595258385984526}
   - {fileID: 4664273446810709855}
   - {fileID: 1343394207}
   - {fileID: 491289296}
@@ -65302,7 +65336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardSo: {fileID: 0}
   itemSo: {fileID: 11400000, guid: 05ddd34e989844349b7f245430acf748, type: 2}
-  itemName: testWeapon
+  itemName: Weaponx
   quantity: 1
   sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   itemDescription: lookspointy
@@ -66131,7 +66165,7 @@ MonoBehaviour:
   itemSo: {fileID: 11400000, guid: 8ff5a7e9c4644b8469d148a81c1a5f0b, type: 2}
   itemName: TestShirt
   quantity: 1
-  sprite: {fileID: 21300000, guid: 144aa74618b85974a9a50f612c2fa8fd, type: 3}
+  sprite: {fileID: 21300000, guid: 60c35420f1ca7da4a9d34dde9b6a9a1a, type: 3}
   itemDescription: shirt
   itemObject: {fileID: 6687376143281311881}
   player: {fileID: 5114949010678350459}
@@ -66462,7 +66496,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weapon
+  m_text: Charm
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

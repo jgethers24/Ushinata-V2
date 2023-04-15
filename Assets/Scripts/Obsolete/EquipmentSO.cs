@@ -4,15 +4,15 @@ using UnityEngine;
 [CreateAssetMenu]
 public class EquipmentSO : ScriptableObject
 {
-    public string itemName;
-    public int strength, magic, speed;
+    /*public string itemName;
+    public int strength, magic, speed, health;
     [SerializeField]
     private Sprite itemSprite;
 
     public void PreviewEquipment()
     {
         GameObject.Find("StatManager").GetComponent<PlayerStats>().
-            PreviewEquipmentStats(strength, magic, speed, itemSprite);
+            PreviewEquipmentStats(strength, magic, speed, health, itemSprite);
     }
     public void EquipItem()
     {
@@ -21,6 +21,7 @@ public class EquipmentSO : ScriptableObject
         playerstats.strength += strength;
         playerstats.magic += magic;
         playerstats.speed += speed;
+        playerstats.health += health;
 
         playerstats.UpdateEquipmentStats();
     }
@@ -32,7 +33,8 @@ public class EquipmentSO : ScriptableObject
         playerstats.strength -= strength;
         playerstats.magic -= magic;
         playerstats.speed -= speed;
+        playerstats.health -= health;
 
         playerstats.UpdateEquipmentStats();
-    }
+    }*/
 }

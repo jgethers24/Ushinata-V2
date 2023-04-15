@@ -10,8 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 249f353652c90264b98aae65ebf261d0, type: 3}
-  m_Name: CursedGear
+  m_Name: charmx
   m_EditorClassIdentifier: 
-  itemName: TestShirt
+  itemName: charmx
   statToChange: 0
-  amountToChangeStat: 0
+  amountToChangeStat: 13
+  strength: 0
+  magic: 1
+  speed: 1
+  health: 0
+  itemSprite: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}

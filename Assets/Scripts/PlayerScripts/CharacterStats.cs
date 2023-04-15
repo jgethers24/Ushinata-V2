@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 public class CharacterStats : MonoBehaviour
@@ -24,6 +25,38 @@ public class CharacterStats : MonoBehaviour
     public int speed;
 
     public static bool isGameOver;
+
+    //some beeg changes beloe
+    [SerializeField]
+    private TMP_Text strengthText, magicText, speedText, healthText;
+
+    [SerializeField]
+    private TMP_Text strengthPreText, magicPreText, speedPreText, healthPreText;
+    [SerializeField]
+    private Image previewImage;
+
+
+    private void Start()
+    {
+        UpdateEquipmentStats();
+    }
+    public void UpdateEquipmentStats()
+    {
+        strengthText.text = strength.ToString();
+        magicText.text = magic.ToString();
+        speedText.text = speed.ToString();
+        healthText.text = maxHealth.ToString();
+    }
+
+    public void PreviewEquipmentStats(int strength, int magic, int speed, int health, Sprite itemSprite)
+    {
+        strengthPreText.text = strength.ToString();
+        magicPreText.text = magic.ToString();
+        speedPreText.text = speed.ToString();
+        healthPreText.text = health.ToString();
+
+        previewImage.sprite = itemSprite;
+    }
     private void Awake()
     {  
         currentHealth = BasemaxHealth;
