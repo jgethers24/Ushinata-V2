@@ -77,10 +77,11 @@ public class CharacterStats : MonoBehaviour
         {           
             TakeDamage(10);
         }      
-        /*if(currentHealth <= 0)
+        if(currentHealth <= 0)
         {
+            Destroy(this.gameObject);
             gameOver();
-        }*/
+        }
     }
     public void TakeDamage (int damage)
     {
@@ -91,7 +92,7 @@ public class CharacterStats : MonoBehaviour
     }
     public void gameOver()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(3);
     }
     public int ChangeHealth(int amountToChangeStat)
     {

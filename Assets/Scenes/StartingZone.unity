@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -42965,6 +42965,7 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 0.000000023749767
 =======
 <<<<<<< HEAD
@@ -42976,10 +42977,14 @@ PrefabInstance:
 =======
       value: 0.00000006652268
 >>>>>>> parent of f7adea6 (added gameover scene)
+=======
+      value: 0.00000006652266
+>>>>>>> parent of 63867d9 (Revert "Made GameOver screen")
       objectReference: {fileID: 0}
     - target: {fileID: 2346473370460277072, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.z
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       value: -0.00000001810879
@@ -42993,6 +42998,9 @@ PrefabInstance:
 =======
       value: -0.00000005072242
 >>>>>>> parent of f7adea6 (added gameover scene)
+=======
+      value: -0.00000005072239
+>>>>>>> parent of 63867d9 (Revert "Made GameOver screen")
       objectReference: {fileID: 0}
     - target: {fileID: 3004505308054445968, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
@@ -43019,6 +43027,7 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: -0.000000042080266
 =======
 <<<<<<< HEAD
@@ -43030,6 +43039,9 @@ PrefabInstance:
 =======
       value: 0.000000003292871
 >>>>>>> parent of f7adea6 (added gameover scene)
+=======
+      value: 0.0000000032928709
+>>>>>>> parent of 63867d9 (Revert "Made GameOver screen")
       objectReference: {fileID: 0}
     - target: {fileID: 3004505308054445968, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
@@ -43252,11 +43264,12 @@ PrefabInstance:
     - target: {fileID: 6192446880622910894, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.046479613
+      value: -0.046479583
       objectReference: {fileID: 0}
     - target: {fileID: 6192446880622910894, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.y
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       value: -0.0000000012189494
@@ -43270,10 +43283,14 @@ PrefabInstance:
 =======
       value: -0.000000021755968
 >>>>>>> parent of f7adea6 (added gameover scene)
+=======
+      value: -0.000000026629904
+>>>>>>> parent of 63867d9 (Revert "Made GameOver screen")
       objectReference: {fileID: 0}
     - target: {fileID: 6192446880622910894, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.z
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       value: 8.854799e-10
@@ -43287,6 +43304,9 @@ PrefabInstance:
 =======
       value: 0.000000015804185
 >>>>>>> parent of f7adea6 (added gameover scene)
+=======
+      value: 0.000000019344753
+>>>>>>> parent of 63867d9 (Revert "Made GameOver screen")
       objectReference: {fileID: 0}
     - target: {fileID: 6985298253288889293, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
@@ -43313,6 +43333,7 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: -0.0000000064209438
 =======
 <<<<<<< HEAD
@@ -43324,10 +43345,14 @@ PrefabInstance:
 =======
       value: -0.0000000023982998
 >>>>>>> parent of f7adea6 (added gameover scene)
+=======
+      value: -0.0000000023982638
+>>>>>>> parent of 63867d9 (Revert "Made GameOver screen")
       objectReference: {fileID: 0}
     - target: {fileID: 6985298253288889293, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.z
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       value: 0.0000000022523456
@@ -43341,6 +43366,9 @@ PrefabInstance:
 =======
       value: 8.412782e-10
 >>>>>>> parent of f7adea6 (added gameover scene)
+=======
+      value: 8.4126556e-10
+>>>>>>> parent of 63867d9 (Revert "Made GameOver screen")
       objectReference: {fileID: 0}
     - target: {fileID: 7600546579854908309, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
