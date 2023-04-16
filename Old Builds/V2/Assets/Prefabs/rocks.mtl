@@ -1,0 +1,14 @@
+# Blender MTL File: 'rocks.blend'
+# Material Count: 1
+
+newmtl Material.001
+Ns 250.000000
+Ka 0.240909 0.240909 0.240909
+Kd 0.962505 1.000000 0.925840
+Ks 0.236364 0.236364 0.236364
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Bump -bm 2.500000 C:\\Users\\User\\Downloads\\Rock033_4K-PNG\\Rock033_4K_NormalGL.png
+map_Kd C:\\Users\\User\\Downloads\\Rock033_4K-PNG\\Rock033_4K_Color.png

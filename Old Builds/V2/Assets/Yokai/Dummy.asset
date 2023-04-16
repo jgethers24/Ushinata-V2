@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0448a0ce6f57174db9b9582d198fe71, type: 3}
+  m_Name: Dummy
+  m_EditorClassIdentifier: 
+  name: Dummy-Kai
+  Object: {fileID: 0}
+  object: {fileID: 4234999636753509637, guid: f2c69634239ae2a4eb4cd5e5d45ba078, type: 3}
+  GameObject: {fileID: 5970639364885817220, guid: fdf740bd199d20844b25320101425642,
+    type: 3}
+  gameObject: {fileID: 6054078488393248213, guid: e8f0a1a14cf50a442bef3fa6f42628bf,
+    type: 3}
+  maxHp: 10
+  strength: 12
+  magic: 12
+  speed: 12
+  moveSets:
+  - moveBase: {fileID: 11400000, guid: ba0b24046450b3245825f679de46673c, type: 2}
