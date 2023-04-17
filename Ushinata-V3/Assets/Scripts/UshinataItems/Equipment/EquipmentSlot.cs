@@ -90,7 +90,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     {
         if (isFull)
         {
-            if (thisItemSelected)
+            if (thisItemSelected /*&& charmSlot.slotInUse == false*/)
             {
                 EquipGear();
             }
@@ -118,17 +118,25 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
     }
     private void EquipGear()
     {
-        if (itemType == ItemType.Charm && charmSlot.slotInUse==false)
-            charmSlot.EquipGear(itemSprite, itemName, itemDescription, itemObject);//object ref
+        if (itemType == ItemType.Charm && charmSlot.slotInUse == false)
+        {
+            charmSlot.EquipGear(itemSprite, itemName, itemDescription, itemObject);
+            EmptySlot();
+        }
+            
         else if (itemType == ItemType.Weapon && weaponSlot.slotInUse == false)
         {
             weaponSlot.EquipGear(itemSprite, itemName, itemDescription, itemObject);//object ref
-            inGameMainHandObject =  itemObject;  //--------------------spawning object------------------------------//
+            inGameMainHandObject =  itemObject;
+            EmptySlot();
         }
-        else if (itemType == ItemType.CursedGear && cursedGearSlot.slotInUse == false)
-            cursedGearSlot.EquipGear(itemSprite, itemName, itemDescription, itemObject);//object ref
+        else if (itemType == ItemType.CursedGear && cursedGearSlot.slotInUse == false) 
+        { 
+            cursedGearSlot.EquipGear(itemSprite, itemName, itemDescription, itemObject);
+            EmptySlot();
+        }
 
-        EmptySlot();
+        //EmptySlot();
     }
     private void EmptySlot()
     {
