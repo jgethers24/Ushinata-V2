@@ -77,21 +77,20 @@ public class CharacterStats : MonoBehaviour
         {           
             TakeDamage(10);
         }      
-        /*if(currentHealth <= 0)
-        {
-            gameOver();
-        }*/
     }
     public void TakeDamage (int damage)
     {
         //damage -= armor.GetValue();
         //damage = Mathf.Clamp(damage, 0, int.MaxValue);
         currentHealth -= damage;
-
+        if (currentHealth <= 0)
+        {
+            gameOver();
+        }
     }
     public void gameOver()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(3);
     }
     public int ChangeHealth(int amountToChangeStat)
     {

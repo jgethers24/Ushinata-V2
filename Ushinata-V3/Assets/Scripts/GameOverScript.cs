@@ -5,17 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class GameOverScript : MonoBehaviour
 {
-    CharacterStats health;
-    EnemyStats hp;
-
     public void RestartButton()
     {
+        //GameObject.DontDestroyOnLoad(null);
         SceneManager.LoadScene(0);
-        health.currentHealth = 100;
-        hp.currentHealth = 100;
+        CharacterStats characterStats = GameObject.FindWithTag("Player").GetComponent<CharacterStats>();
+        characterStats.currentHealth = 100;
     }
 
     public void QuitButton()

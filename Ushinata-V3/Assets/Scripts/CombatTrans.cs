@@ -33,12 +33,10 @@ public class CombatTrans : MonoBehaviour
     }
     private void Update()
     {
+        player = GameObject.FindWithTag("Player");
         EnemyDist = Vector3.Distance(player.transform.position, thisEnemy.transform.position);
         if (EnemyDist < minEnDist)
         {
-            
-
-
             player.transform.position = playerSpawnPoint.transform.position;
             Physics.SyncTransforms();
 
