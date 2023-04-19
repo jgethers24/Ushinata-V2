@@ -17,7 +17,7 @@ public class CombatTrans : MonoBehaviour
 
 
     [SerializeField] private Transform playerSpawnPoint;
-    
+    [SerializeField] private GameObject returnFromCombat;
 
     //Transform startSpot;
     //Collider col;
@@ -34,9 +34,13 @@ public class CombatTrans : MonoBehaviour
     private void Update()
     {
         player = GameObject.FindWithTag("Player");
+        Vector3 playerPos = player.transform.position;
         EnemyDist = Vector3.Distance(player.transform.position, thisEnemy.transform.position);
         if (EnemyDist < minEnDist)
         {
+            Instantiate(returnFromCombat, playerPos,Quaternion.identity);
+            
+            player.transform.rotation = Quaternion.identity;
             player.transform.position = playerSpawnPoint.transform.position;
             Physics.SyncTransforms();
 
@@ -45,8 +49,6 @@ public class CombatTrans : MonoBehaviour
             player.GetComponent<CombatMovementPlayer>().enabled = true;
             player.GetComponent<PlayerCardSystem>().enabled = true;
             player.GetComponent<StarterAssets.ThirdPersonController>().enabled = false;
-            //player.GetComponent<StarterAssets.StarterAssetsInputs>().enabled = false;
-            //player.GetComponent<BasicRigidBodyPush>().enabled = false;
             freeLookCamera.SetActive(false);
             point.SetActive(true);
             castPoint.SetActive(true);
