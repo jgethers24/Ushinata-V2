@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour
 {
+    CombatTrans cam;
     public void RestartButton()
     {
         //GameObject.DontDestroyOnLoad(null);
         SceneManager.LoadScene(0);
+        GameObject.FindWithTag("Player").transform.GetChild(4).gameObject.SetActive(true);
         CharacterStats characterStats = GameObject.FindWithTag("Player").GetComponent<CharacterStats>();
         characterStats.currentHealth = 100;
     }
