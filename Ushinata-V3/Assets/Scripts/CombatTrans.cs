@@ -17,7 +17,7 @@ public class CombatTrans : MonoBehaviour
 
 
     [SerializeField] private Transform playerSpawnPoint;
-    [SerializeField] private GameObject returnFromCombat;
+    //[SerializeField] private GameObject returnFromCombat;
 
     //Transform startSpot;
     //Collider col;
@@ -38,7 +38,7 @@ public class CombatTrans : MonoBehaviour
         EnemyDist = Vector3.Distance(player.transform.position, thisEnemy.transform.position);
         if (EnemyDist < minEnDist)
         {
-            Instantiate(returnFromCombat, playerPos, Quaternion.identity);
+            //Instantiate(returnFromCombat, playerPos, Quaternion.identity);
             player.transform.rotation = Quaternion.identity;
             player.transform.position = playerSpawnPoint.transform.position;
             Physics.SyncTransforms();
