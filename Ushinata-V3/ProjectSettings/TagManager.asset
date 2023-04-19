@@ -12,7 +12,6 @@ TagManager:
   - Location3
   - Location2
   - BackWall
-  - BlockObject
   layers:
   - Default
   - TransparentFX
