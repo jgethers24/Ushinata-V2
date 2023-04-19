@@ -26,10 +26,14 @@ public class Enemybullet : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.name.Contains("Player"))
+        if (col.gameObject.tag == ("Player"))
         {
             Destroy(gameObject);
             damageScript.TakeDamage(10);
+        }
+        else if (col.gameObject.tag == "BlockObject")
+        {
+            Destroy(gameObject);
         }
         else if (col.gameObject.name.Contains("BackWall"))
         {

@@ -6353,6 +6353,7 @@ MonoBehaviour:
   point: {fileID: 2608027656222053491}
   castPoint: {fileID: 3241566978217689043}
   playerSpawnPoint: {fileID: 2089469465}
+  returnFromCombat: {fileID: 0}
 --- !u!1001 &883420446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40020,13 +40021,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stab: {fileID: 0}
-  Fireball: {fileID: 0}
-  SwordSlash: {fileID: 0}
-  LazerBeam: {fileID: 0}
+  HolyFire: {fileID: 0}
+  MochiBall: {fileID: 0}
+  NagiSpear: {fileID: 0}
+  ThunderDrum: {fileID: 0}
+  WindStrike: {fileID: 0}
   StabSO: {fileID: 0}
-  FireballSO: {fileID: 0}
-  SwordSlashSO: {fileID: 0}
-  LazerBeamSO: {fileID: 0}
+  HolyFireSO: {fileID: 0}
+  MochiBallSO: {fileID: 0}
+  NagiSpearSO: {fileID: 0}
+  ThunderDrumSO: {fileID: 0}
+  WindStrikeSO: {fileID: 0}
   maxMana: 100
   currentMana: 0
   mp: {fileID: 0}
@@ -40034,6 +40039,8 @@ MonoBehaviour:
   timeBetweenCasts: 2
   hasEnoughMana: 0
   castPoint: {fileID: 2739326827075431666}
+  blockPoint: {fileID: 0}
+  blockObject: {fileID: 0}
   cardQueue: {fileID: 0}
   queueSlot: {fileID: 0}
   cardImage: {fileID: 0}
@@ -45571,12 +45578,12 @@ PrefabInstance:
     - target: {fileID: 2346473370460277072, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000006320794
+      value: 0.000000023405786
       objectReference: {fileID: 0}
     - target: {fileID: 2346473370460277072, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000004819498
+      value: -0.00000001784651
       objectReference: {fileID: 0}
     - target: {fileID: 3004505308054445968, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
@@ -45601,12 +45608,12 @@ PrefabInstance:
     - target: {fileID: 3004505308054445968, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000010929567
+      value: -0.000000042382204
       objectReference: {fileID: 0}
     - target: {fileID: 3004505308054445968, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000008743653
+      value: 0.000000033905764
       objectReference: {fileID: 0}
     - target: {fileID: 3635283587256421650, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
@@ -45821,12 +45828,12 @@ PrefabInstance:
     - target: {fileID: 6192446880622910894, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000028822033
+      value: -0.000000026629904
       objectReference: {fileID: 0}
     - target: {fileID: 6192446880622910894, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000002093718
+      value: 0.000000019344753
       objectReference: {fileID: 0}
     - target: {fileID: 6985298253288889293, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
@@ -45851,12 +45858,12 @@ PrefabInstance:
     - target: {fileID: 6985298253288889293, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000010809394
+      value: -0.0000000063774803
       objectReference: {fileID: 0}
     - target: {fileID: 6985298253288889293, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000037917314
+      value: 0.0000000022370996
       objectReference: {fileID: 0}
     - target: {fileID: 7600546579854908309, guid: 659400d6002fe4349a49da15866032e6,
         type: 3}

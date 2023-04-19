@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
-
 public class PlayerCardSystem : MonoBehaviour
 {
-    [SerializeField] private Spell Stab, Fireball, SwordSlash,LazerBeam;
-    [SerializeField] private SpellSO StabSO, FireballSO, SwordSlashSO, LazerBeamSO;
+    [SerializeField] private Spell Stab, HolyFire, MochiBall, NagiSpear, ThunderDrum, WindStrike;
+    [SerializeField] private SpellSO StabSO, HolyFireSO, MochiBallSO, NagiSpearSO, ThunderDrumSO, WindStrikeSO;
     private Spell spellToCast;
     [SerializeField] private float maxMana = 100f;
     [SerializeField] private float currentMana;
@@ -19,26 +18,27 @@ public class PlayerCardSystem : MonoBehaviour
     [SerializeField] private bool hasEnoughMana;
     private int spellManaCost;
     [SerializeField] private Transform castPoint;
-    
+    [SerializeField] private Transform blockPoint;
+    CombatMovementPlayer combatMovement;
     private bool castingMagic = false;
 
+    [SerializeField] private GameObject blockObject;
+    private float sinceBlock = 0f;
+    private float blockCD = 2.0f;
+    private float blockDuration = 0.5f;
+    private bool isblocking = false;
     public CardQueue cardQueue;
     [SerializeField]
     private CardQueue queueSlot;
-
     // Card Data
     [SerializeField]
     private Image cardImage;
-
     //object ref
-
     [SerializeField]
     private TMP_Text cardName;
-
     public Image cardDescriptionImage;
     public TMP_Text cardDescriptionNameText;
     public TMP_Text cardDescriptionText;
-
     //SLOT DATA//
     [SerializeField]
     private ItemType itemType = new ItemType();
@@ -47,14 +47,11 @@ public class PlayerCardSystem : MonoBehaviour
     private string itemName;
     private string itemDescription;
     private GameObject itemObject;
-
     private InvenManager invenManager;
     private CardSOLibrary cardSOLibrary;
     private Sprite emptySprite;
     public bool slotInUse;
-
     private string q4Name;
-
     public void Start()
     {
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
@@ -66,57 +63,95 @@ public class PlayerCardSystem : MonoBehaviour
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
         cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
     }
-
     private void Update()
     {
         mp.text = "MP: " + Mathf.FloorToInt(currentMana) + "/" + maxMana;
-        
-
         q4Name = queueSlot.GetComponent<CardQueue>().itemName;
-
-        if (q4Name == "Fireball")//queueSlot.name == "Fireball")
+        bool meleeAttack = Input.GetButtonDown("Fire1");
+        bool blocking = Input.GetButtonDown("Block");
+        bool isSpellCastHeldDown = Input.GetButtonDown("SpellCast");
+        if (!castingMagic && meleeAttack)
         {
-            spellToCast = Fireball;
-            spellManaCost = FireballSO.manaCost;
+            Debug.Log("melee");
+            spellToCast = Stab;
+            spellManaCost = StabSO.manaCost;
+            Instantiate(spellToCast, castPoint.position, castPoint.rotation);
+            Debug.Log("melee");
+        }
+        if (!castingMagic && blocking && /*!combatMovement.moving &&[*/ !isblocking)
+        {
+            Debug.Log("block");
+            //Instantiate(blockObject);
+            Instantiate(blockObject, blockPoint.position, blockPoint.rotation);
+            isblocking = true;
+            sinceBlock = 0.0f;
+            Debug.Log("block");
+        }
+        if (isblocking)
+        {
+            sinceBlock += Time.deltaTime;
+            if (blockDuration <= sinceBlock)
+            {
+                Destroy(GameObject.FindGameObjectWithTag("BlockObject"));
+                if (blockCD <= sinceBlock)
+                {
+                    sinceBlock = 0.0f;
+                    isblocking = false;
+                }
+            }
+        }
+        if (q4Name == "Holy Fire")//queueSlot.name == "Fireball")
+        {
+            spellToCast = HolyFire;
+            spellManaCost = HolyFireSO.manaCost;
             hasEnoughMana = currentMana - spellManaCost >= 0f;
             //Debug.Log("casting fire");
         }
-        else if (q4Name == "LazerBeam")
+        else if (q4Name == "Mochi Ball")
         {
-            spellToCast = LazerBeam;
-            spellManaCost = LazerBeamSO.manaCost;
+            spellToCast = MochiBall;
+            spellManaCost = MochiBallSO.manaCost;
             hasEnoughMana = currentMana - spellManaCost >= 0f;
             //Debug.Log("casting beam");
         }
-        else if (q4Name == "SwordSlash")
+        else if (q4Name == "Nagi Spear")
         {
-            spellToCast = SwordSlash;
-            spellManaCost = SwordSlashSO.manaCost;
+            spellToCast = NagiSpear;
+            spellManaCost = NagiSpearSO.manaCost;
+            hasEnoughMana = currentMana - spellManaCost >= 0f;
+            //Debug.Log("casting slash");
+        }
+        else if (q4Name == "Thunder Drum")
+        {
+            spellToCast = ThunderDrum;
+            spellManaCost = ThunderDrumSO.manaCost;
+            hasEnoughMana = currentMana - spellManaCost >= 0f;
+            //Debug.Log("casting slash");
+        }
+        else if (q4Name == "Wind Strike")
+        {
+            spellToCast = WindStrike;
+            spellManaCost = WindStrikeSO.manaCost;
             hasEnoughMana = currentMana - spellManaCost >= 0f;
             //Debug.Log("casting slash");
         }
         else
         {
-            spellToCast = Stab;
-            spellManaCost = StabSO.manaCost;
-            hasEnoughMana = currentMana - spellManaCost >= 0f;
-            //Debug.Log("casting stab");
+            return;
         }
-        bool testButton = Input.GetKeyDown(KeyCode.V);
-        bool isSpellCastHeldDown = Input.GetButtonDown("SpellCast");
+
         //bool hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
 
-        if(!castingMagic && isSpellCastHeldDown && hasEnoughMana)
+        if (!castingMagic && isSpellCastHeldDown && hasEnoughMana)
         {
-            
-            castingMagic = true;
-            currentMana -= spellManaCost; 
 
-             currentCastTimer = 0;
+            castingMagic = true;
+            currentMana -= spellManaCost;
+            currentCastTimer = 0;
             CastSpell();
             Debug.Log("casting a spell");
         }
-        if(castingMagic)
+        if (castingMagic)
         {
             currentCastTimer += Time.deltaTime;
             if (currentCastTimer > timeBetweenCasts)
@@ -128,11 +163,7 @@ public class PlayerCardSystem : MonoBehaviour
             if (currentMana > maxMana)
                 currentMana = maxMana;
         }
-        if (testButton)
-        {
-            Debug.Log("V button working");
-        }
-      
+
     }
     void CastSpell()
     {
@@ -144,17 +175,13 @@ public class PlayerCardSystem : MonoBehaviour
     }
     public void DeleteCard()
     {
-       
+
         invenManager.DeselectAllSlots();
         //Update SlotImage
         this.itemSprite = emptySprite;
         cardImage.sprite = this.emptySprite;
         this.itemName = "";
         this.itemDescription = "";
-
         slotInUse = false;
     }
-
-
-
 }
