@@ -7,6 +7,7 @@ using TMPro;
 public class SimpleDialogManager : MonoBehaviour
 {
     [SerializeField] public GameObject dialogBox;
+    [SerializeField] ChoiceBox choiceBox;
     [SerializeField]
     private TMP_Text dialogText;
     [SerializeField] int lettersPerSecond;
@@ -24,14 +25,17 @@ public class SimpleDialogManager : MonoBehaviour
         Instance = this;
     }
 
-    public void ShowDialog(Dialog dialog)
+    public void ShowDialog(Dialog dialog,List<string>choices = null)
     {
         //OnShowDialog?.Invoke();
         this.dialog = dialog;
         dialogBox.SetActive(true);
         StartCoroutine(TypeDialog(dialog.Lines[0]));
         
-            //HandleUpdate();
+        if (choices != null && choices.Count > 1)
+        {
+            yield return choiceBox.ShowChoices(choices);
+        }
     }
     public void HandleUpdate()
     {
