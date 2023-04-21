@@ -6,7 +6,7 @@ using TMPro;
 
 public class SimpleDialogManager : MonoBehaviour
 {
-    [SerializeField] public GameObject dialogBox;
+    /*[SerializeField] public GameObject dialogBox;
     [SerializeField] ChoiceBox choiceBox;
     [SerializeField]
     private TMP_Text dialogText;
@@ -72,5 +72,5 @@ public class SimpleDialogManager : MonoBehaviour
         }
         //isTyping = false;
     }
-
+    */
 }

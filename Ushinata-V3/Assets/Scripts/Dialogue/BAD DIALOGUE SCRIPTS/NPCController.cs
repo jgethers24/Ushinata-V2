@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NPCController : MonoBehaviour//,Interactable
 {
+    /*
     [SerializeField] Dialog dialog;
     public bool inRange = false;
     [SerializeField] public GameObject dialogObj;
@@ -54,4 +55,5 @@ public class NPCController : MonoBehaviour//,Interactable
         inRange = false;
         SimpleDialogManager.Instance.HideDialog(dialog);
     }
+    */
 }
