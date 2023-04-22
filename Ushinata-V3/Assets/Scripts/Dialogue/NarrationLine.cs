@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[CreateAssetMenu(menuName = "Scriptable Objects/Narration/Line")]
+[CreateAssetMenu(fileName = "Narration", menuName = "Narration/Line")]
 public class NarrationLine : ScriptableObject
 {
     [SerializeField] private NarrationCharacter m_Speaker;
     [SerializeField] private string m_Text;
 
     public NarrationCharacter Speaker => m_Speaker;
-    public string TextAlignment => m_Text;
+    public string Text => m_Text;
 }

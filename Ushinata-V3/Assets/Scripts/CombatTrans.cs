@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class CombatTrans : MonoBehaviour
 {
     public string scenename;
-    public GameObject player;
+    private GameObject player;
     public GameObject thisEnemy;
     public float EnemyDist;
     private float minEnDist = 3.0f;
@@ -17,28 +17,18 @@ public class CombatTrans : MonoBehaviour
 
 
     [SerializeField] private Transform playerSpawnPoint;
-    //[SerializeField] private GameObject returnFromCombat;
 
-    //Transform startSpot;
-    //Collider col;
-    //Transform targetPoint;
-    //public float speed = 1f;
     private void Start()
     {
-        
-        //col = player.GetComponent<CapsuleCollider>();
-        //startSpot = GameObject.FindGameObjectWithTag("PlayerSpawnPoint").transform;
-
-        //targetPoint.transform.Translate(0, 0, 1);
+        player = GameObject.FindWithTag("Player");
     }
     private void Update()
     {
-        player = GameObject.FindWithTag("Player");
+        
         Vector3 playerPos = player.transform.position;
         EnemyDist = Vector3.Distance(player.transform.position, thisEnemy.transform.position);
         if (EnemyDist < minEnDist)
         {
-            //Instantiate(returnFromCombat, playerPos, Quaternion.identity);
             player.transform.rotation = Quaternion.identity;
             player.transform.position = playerSpawnPoint.transform.position;
             Physics.SyncTransforms();
@@ -53,8 +43,6 @@ public class CombatTrans : MonoBehaviour
             castPoint.SetActive(true);
             player.SetActive(false);
             player.SetActive(true);
-
-            //combatSceneTransition();
         }
     }
 }
