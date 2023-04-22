@@ -38,11 +38,18 @@ public class CombatTrans : MonoBehaviour
             player.GetComponent<CombatMovementPlayer>().enabled = true;
             player.GetComponent<PlayerCardSystem>().enabled = true;
             player.GetComponent<StarterAssets.ThirdPersonController>().enabled = false;
-            freeLookCamera.SetActive(false);
-            point.SetActive(true);
-            castPoint.SetActive(true);
+            player.GetComponent<Animator>().enabled = false;
+            
+            player.transform.Find("FreeLook Camera").gameObject.SetActive(false);
+            player.transform.Find("CastPoint").gameObject.SetActive(true);
+            player.transform.Find("Point").gameObject.SetActive(true);
+
+            //freeLookCamera.SetActive(false);
+            //point.SetActive(true);
+            //castPoint.SetActive(true);
             player.SetActive(false);
             player.SetActive(true);
+            player.GetComponent<Animator>().enabled = true;
         }
     }
 }

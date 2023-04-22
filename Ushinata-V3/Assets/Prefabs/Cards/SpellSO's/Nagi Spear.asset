@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nagi Spear
   m_EditorClassIdentifier: 
   damageAmount: 25
-  manaCost: 25
-  lifetime: 0.1
+  manaCost: 10
+  lifetime: 1
   speed: 0
   spellRadius: 0.2

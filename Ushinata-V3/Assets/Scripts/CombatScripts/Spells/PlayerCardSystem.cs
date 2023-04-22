@@ -70,7 +70,8 @@ public class PlayerCardSystem : MonoBehaviour
         bool meleeAttack = Input.GetButtonDown("Fire1");
         bool blocking = Input.GetButtonDown("Block");
         bool isSpellCastHeldDown = Input.GetButtonDown("SpellCast");
-        if (!castingMagic && meleeAttack)
+        
+        if (!castingMagic && meleeAttack && (Time.timeScale == 1))
         {
             Debug.Log("melee");
             spellToCast = Stab;
@@ -78,7 +79,7 @@ public class PlayerCardSystem : MonoBehaviour
             Instantiate(spellToCast, castPoint.position, castPoint.rotation);
             Debug.Log("melee");
         }
-        if (!castingMagic && blocking && /*!combatMovement.moving &&[*/ !isblocking)
+        if (!castingMagic && blocking && !isblocking && (Time.timeScale == 1))
         {
             Debug.Log("block");
             //Instantiate(blockObject);
@@ -142,7 +143,7 @@ public class PlayerCardSystem : MonoBehaviour
 
         //bool hasEnoughMana = currentMana - spellToCast.spellToCast.manaCost >= 0f;
 
-        if (!castingMagic && isSpellCastHeldDown && hasEnoughMana)
+        if (!castingMagic && isSpellCastHeldDown && hasEnoughMana && (Time.timeScale == 1))
         {
 
             castingMagic = true;

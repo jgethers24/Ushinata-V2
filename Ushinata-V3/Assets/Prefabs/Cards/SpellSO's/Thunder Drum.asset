@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Thunder Drum
   m_EditorClassIdentifier: 
   damageAmount: 30
-  manaCost: 50
-  lifetime: 1
-  speed: 20
+  manaCost: 30
+  lifetime: 5
+  speed: 5
   spellRadius: 0.2

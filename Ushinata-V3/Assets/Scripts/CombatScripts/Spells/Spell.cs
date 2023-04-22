@@ -7,7 +7,7 @@ using UnityEngine;
 public class Spell : MonoBehaviour
 {
     public SpellSO spellToCast;
-
+    private float spellLifeSpan;
     private SphereCollider myCollider;
     private Rigidbody myRigidbody;
 
@@ -20,16 +20,19 @@ public class Spell : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody>();
         myRigidbody.isKinematic = true;
 
-        if (spellToCast.lifetime <= 0f)
-        {
-            Destroy(this.gameObject);
-        }
+        spellLifeSpan = spellToCast.lifetime;
         //Destroy(this.gameObject, spellToCast.lifetime);
     }
 
     public void Update()
     {
-        if(spellToCast.speed > 0)
+        spellLifeSpan -= Time.deltaTime;
+        if (spellLifeSpan <= 0f)
+        {
+            Destroy(this.gameObject);
+            spellLifeSpan = spellToCast.lifetime;
+        }
+        if (spellToCast.speed > 0)
             transform.Translate(Vector3.forward * spellToCast.speed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider other)
