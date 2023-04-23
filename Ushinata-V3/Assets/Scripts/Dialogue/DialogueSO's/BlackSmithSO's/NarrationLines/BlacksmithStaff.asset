@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3c01e13aa918be4986f8200ba238726, type: 3}
-  m_Name: DialogueNodeBasic
+  m_Script: {fileID: 11500000, guid: 3d961ba1c009b914084e9906dadf7407, type: 3}
+  m_Name: BlacksmithStaff
   m_EditorClassIdentifier: 
-  m_DialogueLine: {fileID: 11400000, guid: 6648a5ef8d7a62543a0979706c271561, type: 2}
-  m_NextNode: {fileID: 0}
+  m_Speaker: {fileID: 11400000, guid: ba84623977653c0408c60411e2eeb7d6, type: 2}
+  m_Text: A Wise Decision.
+  bSManager: {fileID: 0}

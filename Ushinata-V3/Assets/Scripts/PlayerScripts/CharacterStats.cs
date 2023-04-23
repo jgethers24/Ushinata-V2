@@ -26,7 +26,6 @@ public class CharacterStats : MonoBehaviour
 
     public static bool isGameOver;
 
-    //some beeg changes beloe
     [SerializeField]
     private TMP_Text strengthText, magicText, speedText, healthText;
 
@@ -34,7 +33,6 @@ public class CharacterStats : MonoBehaviour
     private TMP_Text strengthPreText, magicPreText, speedPreText, healthPreText;
     [SerializeField]
     private Image previewImage;
-
 
     private void Start()
     {
@@ -58,7 +56,8 @@ public class CharacterStats : MonoBehaviour
         previewImage.sprite = itemSprite;
     }
     private void Awake()
-    {  
+    {
+        
         currentHealth = BasemaxHealth;
         maxHealth = BasemaxHealth;
         strength = BaseStrength;
@@ -100,6 +99,7 @@ public class CharacterStats : MonoBehaviour
         Debug.Log("XXXXXXXXXXX");
         return instance.maxHealth;
     }
+    
     public int RestoreHealth(int amountToChangeStat)
     {
 

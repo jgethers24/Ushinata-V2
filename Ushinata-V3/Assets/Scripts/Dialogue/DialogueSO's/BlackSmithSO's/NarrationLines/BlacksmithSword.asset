@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2a6e0c174bd5df4d94f57664568d0fb, type: 3}
-  m_Name: Timbert
+  m_Script: {fileID: 11500000, guid: 3d961ba1c009b914084e9906dadf7407, type: 3}
+  m_Name: BlacksmithSword
   m_EditorClassIdentifier: 
-  m_CharacterName: Timbert
+  m_Speaker: {fileID: 11400000, guid: ba84623977653c0408c60411e2eeb7d6, type: 2}
+  m_Text: You have a sharp eye for quality.
+  bSManager: {fileID: 0}

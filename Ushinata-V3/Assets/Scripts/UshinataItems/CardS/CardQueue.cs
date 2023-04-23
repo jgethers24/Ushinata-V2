@@ -64,9 +64,17 @@ public class CardQueue : MonoBehaviour, IPointerClickHandler
     }
     void Update()
     {
-        if (!slotInUse)
+        if (!slotInUse) 
+        {
             cardImage.sprite = emptySprite;
-        uiCardImage.sprite = cardQueue[4].itemSprite;
+            uiCardImage.sprite = cardQueue[4].cardImage.sprite;
+        }
+            
+        else if (slotInUse)
+        {
+            uiCardImage.sprite = cardQueue[4].cardImage.sprite;
+        }
+        
 
     }
     public void OnPointerClick(PointerEventData eventData)
