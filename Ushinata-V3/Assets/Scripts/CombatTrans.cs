@@ -17,10 +17,12 @@ public class CombatTrans : MonoBehaviour
 
 
     [SerializeField] private Transform playerSpawnPoint;
+    [SerializeField] private Transform enemySpawnPoint;
 
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
+        thisEnemy = this.gameObject;
     }
     private void Update()
     {
@@ -31,6 +33,13 @@ public class CombatTrans : MonoBehaviour
         {
             player.transform.rotation = Quaternion.identity;
             player.transform.position = playerSpawnPoint.transform.position;
+            thisEnemy.transform.rotation = Quaternion.identity;
+            thisEnemy.transform.position = enemySpawnPoint.transform.position;
+            GameObject.DontDestroyOnLoad(thisEnemy.gameObject);
+            //this.GetComponent<DontDestroy>().enabled = true;
+            thisEnemy.GetComponent<DummyKaiAI>().enabled = true;
+
+            
             Physics.SyncTransforms();
 
             SceneManager.LoadScene(scenename);
@@ -44,9 +53,9 @@ public class CombatTrans : MonoBehaviour
             player.transform.Find("CastPoint").gameObject.SetActive(true);
             player.transform.Find("Point").gameObject.SetActive(true);
 
-            //freeLookCamera.SetActive(false);
-            //point.SetActive(true);
-            //castPoint.SetActive(true);
+
+            
+
             player.SetActive(false);
             player.SetActive(true);
             player.GetComponent<Animator>().enabled = true;
