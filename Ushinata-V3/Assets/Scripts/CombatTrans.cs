@@ -6,31 +6,57 @@ using UnityEngine.SceneManagement;
 public class CombatTrans : MonoBehaviour
 {
     public string scenename;
+    public string overworldSceneName;
     private GameObject player;
     public GameObject thisEnemy;
+    public GameObject overworldPosition;
     public float EnemyDist;
     private float minEnDist = 3.0f;
 
     public GameObject freeLookCamera;
-    public GameObject point;
+    //public GameObject point;
     public GameObject castPoint;
 
 
     [SerializeField] private Transform playerSpawnPoint;
     [SerializeField] private Transform enemySpawnPoint;
 
+    GameObject combatGameManager;
+    
+    
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
         thisEnemy = this.gameObject;
+        overworldPosition = GameObject.Find("PlayerOverworldPosition");
+        
     }
     private void Update()
     {
-        
-        Vector3 playerPos = player.transform.position;
+        //if (combatGameManager==null)
+        //{
+         //   combatGameManager = GameObject.Find("CombatGameManager");
+          //  combatGameManager.GetComponent<EnemyDefeated>().SetEnemy();
+        //}
+/*
+        if (thisEnemy.GetComponent<EnemyStats>().currentHealth <= 0 || thisEnemy == null)
+        {
+            foreach (GameObject item in objs)
+            {
+                item.SetActive(true);
+            }
+            foreach (GameObject allEnemies in foes)
+            {
+                allEnemies.SetActive(true);
+            }
+        }
+*/
+            Vector3 playerPos = player.transform.position;
         EnemyDist = Vector3.Distance(player.transform.position, thisEnemy.transform.position);
         if (EnemyDist < minEnDist)
         {
+            overworldPosition.transform.position = player.transform.position;
             player.transform.rotation = Quaternion.identity;
             player.transform.position = playerSpawnPoint.transform.position;
             thisEnemy.transform.rotation = Quaternion.identity;
@@ -39,7 +65,10 @@ public class CombatTrans : MonoBehaviour
             //this.GetComponent<DontDestroy>().enabled = true;
             thisEnemy.GetComponent<DummyKaiAI>().enabled = true;
 
+
             
+
+            thisEnemy.SetActive(true);
             Physics.SyncTransforms();
 
             SceneManager.LoadScene(scenename);
@@ -53,12 +82,33 @@ public class CombatTrans : MonoBehaviour
             player.transform.Find("CastPoint").gameObject.SetActive(true);
             player.transform.Find("Point").gameObject.SetActive(true);
 
-
+            //combatGameManager.GetComponent<EnemyDefeated>().thenemy = thisEnemy;
+            //if (combatGameManager == null)
+            //{
+            //    combatGameManager = GameObject.Find("CombatGameManager");
+            //    combatGameManager.GetComponent<EnemyDefeated>().SetEnemy();
+            //}
+            GameObject[] objs;
+            objs = GameObject.FindGameObjectsWithTag("Item");
+            GameObject[] foes;
+            foes = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject item in objs)
+            {
+                item.SetActive(false);
+            }
+            foreach (GameObject allEnemies in foes)
+            {
+                allEnemies.SetActive(false);
+            }
             
-
             player.SetActive(false);
             player.SetActive(true);
             player.GetComponent<Animator>().enabled = true;
+
+            player.GetComponent<GameStart>().enemy.SetActive(true);
+            //combatGameManager.GetComponent<EnemyDefeated>().enemy = thisEnemy;
+            thisEnemy.GetComponent<CombatTrans>().enabled = false;
+
         }
     }
 }

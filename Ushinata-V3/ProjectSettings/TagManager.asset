@@ -13,6 +13,8 @@ TagManager:
   - Location2
   - BackWall
   - BlockObject
+  - Pickup1
+  - Item
   layers:
   - Default
   - TransparentFX

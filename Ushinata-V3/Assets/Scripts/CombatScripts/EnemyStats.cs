@@ -12,11 +12,13 @@ public class EnemyStats : MonoBehaviour
     public int strength;
     public int magic;
     public int speed;
+    //public bool isAlive = true;
     // Start is called before the first frame update
     private void Awake()
     {
         instance = this;
         currentHealth = maxHealth;
+        //isAlive = true;
     }
 
     /*private void Update()
@@ -36,7 +38,9 @@ public class EnemyStats : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Destroy(this.gameObject);
+            //isAlive = false;
+            GameObject.FindGameObjectWithTag("Enemy").SetActive(false);
+            Destroy(GameObject.FindGameObjectWithTag("Enemy"));
         }
     }
 }
