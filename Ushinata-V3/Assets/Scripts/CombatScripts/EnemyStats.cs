@@ -12,6 +12,9 @@ public class EnemyStats : MonoBehaviour
     public int strength;
     public int magic;
     public int speed;
+
+    public bool ded=false;
+
     //public bool isAlive = true;
     // Start is called before the first frame update
     private void Awake()
@@ -21,13 +24,21 @@ public class EnemyStats : MonoBehaviour
         //isAlive = true;
     }
 
-    /*private void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            TakeDamage(10);
+            if (currentHealth <= 0)
+            {
+                //isAlive = false;
+                //GameObject.FindGameObjectWithTag("Enemy").SetActive(false);
+                Destroy(this.gameObject);
+                Destroy(this);
+                Destroy(instance);
+                Destroy(instance.gameObject);
+            }
         }
-    }*/
+    }
 
     // Update is called once per frame
     public void TakeDamage(float damageToApply)
@@ -39,8 +50,11 @@ public class EnemyStats : MonoBehaviour
         if (currentHealth <= 0)
         {
             //isAlive = false;
-            GameObject.FindGameObjectWithTag("Enemy").SetActive(false);
-            Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+            //GameObject.FindGameObjectWithTag("Enemy").SetActive(false);
+            Destroy(this.gameObject);
+            Destroy(this);
+            Destroy(instance);
+            Destroy(instance.gameObject);
         }
     }
 }

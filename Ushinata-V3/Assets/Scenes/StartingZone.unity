@@ -2178,6 +2178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2d39dd971b9364f997d564885b59d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canTeleport: 0
   scenename: CombatScene2
   overworldSceneName: StartingZone
   thisEnemy: {fileID: 875493843}
@@ -2204,6 +2205,7 @@ MonoBehaviour:
   strength: 0
   magic: 0
   speed: 0
+  ded: 0
 --- !u!65 &875493853
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3396,32 +3398,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1876040930}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1354406931 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3135813802970581472, guid: d2641bfec9094ba4297ed387ee433a61,
-    type: 3}
-  m_PrefabInstance: {fileID: 6937789331237673232}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1354406935
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354406931}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23edfbc00f3aa1842875455bc071134f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inOverworld: 0
-  overworldSceneName: 
-  player: {fileID: 0}
-  overworldPosition: {fileID: 0}
-  enemy: {fileID: 0}
-  freeLookCamera: {fileID: 0}
-  point: {fileID: 0}
-  castPoint: {fileID: 0}
 --- !u!1001 &1438581946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5618,37 +5594,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938856156}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1972391012
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1972391014}
-  m_Layer: 0
-  m_Name: OverworldGameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1972391014
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972391012}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -67.051, y: 43.70903, z: -383.2197}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1976805241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6696,11 +6641,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23edfbc00f3aa1842875455bc071134f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inOverworld: 0
+  needsEnemy: 0
   overworldSceneName: 
   player: {fileID: 0}
   overworldPosition: {fileID: 0}
-  enemy: {fileID: 0}
+  currentEnemy: {fileID: 0}
   freeLookCamera: {fileID: 0}
   point: {fileID: 0}
   castPoint: {fileID: 0}
@@ -8856,12 +8801,12 @@ PrefabInstance:
     - target: {fileID: 1941631702505182463, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000010809394
+      value: 0.00000004483861
       objectReference: {fileID: 0}
     - target: {fileID: 1941631702505182463, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000037917314
+      value: -0.000000015728537
       objectReference: {fileID: 0}
     - target: {fileID: 2189448923254581834, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
@@ -8922,17 +8867,17 @@ PrefabInstance:
     - target: {fileID: 2566938215564486229, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.046479613
+      value: -0.046479583
       objectReference: {fileID: 0}
     - target: {fileID: 2566938215564486229, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000022157538
+      value: -7.6279516e-10
       objectReference: {fileID: 0}
     - target: {fileID: 2566938215564486229, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000016095893
+      value: 5.54117e-10
       objectReference: {fileID: 0}
     - target: {fileID: 2650765441010165993, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
@@ -9016,13 +8961,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2987574554398713314, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.023296475
+      objectReference: {fileID: 0}
+    - target: {fileID: 2987574554398713314, guid: d2641bfec9094ba4297ed387ee433a61,
+        type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000006320794
+      value: 0.000000056506032
       objectReference: {fileID: 0}
     - target: {fileID: 2987574554398713314, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000004819498
+      value: -0.000000043084885
       objectReference: {fileID: 0}
     - target: {fileID: 3067707707534118298, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
@@ -9497,7 +9447,7 @@ PrefabInstance:
     - target: {fileID: 5640451186818825955, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5720892112022644419, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
@@ -9807,12 +9757,12 @@ PrefabInstance:
     - target: {fileID: 7840246829180115428, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000010929567
+      value: 0.000000028159764
       objectReference: {fileID: 0}
     - target: {fileID: 7840246829180115428, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000008743653
+      value: -0.000000022527813
       objectReference: {fileID: 0}
     - target: {fileID: 7948579307548662444, guid: d2641bfec9094ba4297ed387ee433a61,
         type: 3}
@@ -10009,10 +9959,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 205129508639912829}
-    - targetCorrespondingSourceObject: {fileID: 3135813802970581472, guid: d2641bfec9094ba4297ed387ee433a61,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1354406935}
   m_SourcePrefab: {fileID: 100100000, guid: d2641bfec9094ba4297ed387ee433a61, type: 3}
 --- !u!114 &6955412518091359625
 MonoBehaviour:

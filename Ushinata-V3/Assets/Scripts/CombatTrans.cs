@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CombatTrans : MonoBehaviour
 {
+    public bool canTeleport;
     public string scenename;
     public string overworldSceneName;
     private GameObject player;
@@ -21,12 +22,13 @@ public class CombatTrans : MonoBehaviour
     [SerializeField] private Transform playerSpawnPoint;
     [SerializeField] private Transform enemySpawnPoint;
 
-    GameObject combatGameManager;
+   
     
     
 
     private void Start()
     {
+        canTeleport = true;
         player = GameObject.FindWithTag("Player");
         thisEnemy = this.gameObject;
         overworldPosition = GameObject.Find("PlayerOverworldPosition");
@@ -52,23 +54,22 @@ public class CombatTrans : MonoBehaviour
             }
         }
 */
-            Vector3 playerPos = player.transform.position;
+        Vector3 playerPos = player.transform.position;
         EnemyDist = Vector3.Distance(player.transform.position, thisEnemy.transform.position);
-        if (EnemyDist < minEnDist)
+        if (EnemyDist < minEnDist && canTeleport == true)
         {
             overworldPosition.transform.position = player.transform.position;
             player.transform.rotation = Quaternion.identity;
             player.transform.position = playerSpawnPoint.transform.position;
             thisEnemy.transform.rotation = Quaternion.identity;
             thisEnemy.transform.position = enemySpawnPoint.transform.position;
-            GameObject.DontDestroyOnLoad(thisEnemy.gameObject);
+            GameObject.DontDestroyOnLoad(thisEnemy);
             //this.GetComponent<DontDestroy>().enabled = true;
             thisEnemy.GetComponent<DummyKaiAI>().enabled = true;
-
-
             
-
-            thisEnemy.SetActive(true);
+            player.transform.GetComponent<GameStart>().FindEnemy(thisEnemy);
+            
+            
             Physics.SyncTransforms();
 
             SceneManager.LoadScene(scenename);
@@ -105,10 +106,28 @@ public class CombatTrans : MonoBehaviour
             player.SetActive(true);
             player.GetComponent<Animator>().enabled = true;
 
-            player.GetComponent<GameStart>().enemy.SetActive(true);
-            //combatGameManager.GetComponent<EnemyDefeated>().enemy = thisEnemy;
-            thisEnemy.GetComponent<CombatTrans>().enabled = false;
+            thisEnemy.SetActive(true);
+            thisEnemy = player.GetComponent<GameStart>().currentEnemy;
+            thisEnemy.SetActive(true);
+            canTeleport = false;
 
         }
     }
+    
+    public void ReturnObjects()
+    {
+        GameObject[] objs;
+        objs = GameObject.FindGameObjectsWithTag("Item");
+        GameObject[] foes;
+        foes = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject item in objs)
+        {
+            item.SetActive(true);
+        }
+        foreach (GameObject allEnemies in foes)
+        {
+            allEnemies.SetActive(true);
+        }
+    }
+    
 }
