@@ -13,6 +13,43 @@ public class EnemyStats : MonoBehaviour
     public int magic;
     public int speed;
 
+
+    private void Awake()
+    {
+        instance = this;
+        currentHealth = maxHealth;
+
+    }
+
+    public void TakeDamage(float damageToApply)
+    {
+        currentHealth -= damageToApply;
+
+        Debug.Log(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+
+        }
+    }
+}
+
+/*
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyStats : MonoBehaviour
+{
+    public static EnemyStats instance;
+
+    public float maxHealth;
+    public float currentHealth;
+
+    public int strength;
+    public int magic;
+    public int speed;
+
     public bool ded=false;
 
     //public bool isAlive = true;
@@ -58,3 +95,4 @@ public class EnemyStats : MonoBehaviour
         }
     }
 }
+*/

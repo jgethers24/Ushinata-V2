@@ -15,6 +15,7 @@ TagManager:
   - BlockObject
   - Pickup1
   - Item
+  - OverworldItemsAndEnemies
   layers:
   - Default
   - TransparentFX

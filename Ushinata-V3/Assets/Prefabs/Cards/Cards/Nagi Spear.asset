@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Nagi Spear
   itemDescription: slashes the enemy two tiles in front dealing melee damage
-  power: 15
+  power: 30
   manaCost: 10
   itemSprite: {fileID: 21300000, guid: 0fc520d35c6a2f94794d2443eb3b80f6, type: 3}
