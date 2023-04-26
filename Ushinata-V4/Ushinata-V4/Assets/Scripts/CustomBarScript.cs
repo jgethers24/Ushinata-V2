@@ -25,6 +25,7 @@ public class CustomBarScript : MonoBehaviour
         _slider.value = Time.time;
         if (_slider.value == FillTime)
         {
+            Debug.Log("full");
             Time.timeScale = 0;
             if (Time.timeScale == 0)
             {
