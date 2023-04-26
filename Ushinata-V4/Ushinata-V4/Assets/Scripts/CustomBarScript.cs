@@ -23,9 +23,8 @@ public class CustomBarScript : MonoBehaviour
     void Update()
     {
         _slider.value = Time.time;
-        if (_slider.value == FillTime)
+        if (_slider.value >= _slider.maxValue)
         {
-            Debug.Log("full");
             Time.timeScale = 0;
             if (Time.timeScale == 0)
             {
