@@ -7,11 +7,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d961ba1c009b914084e9906dadf7407, type: 3}
   m_Name: BlacksmithSword
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: ba84623977653c0408c60411e2eeb7d6, type: 2}
-  m_Text: You have a sharp eye for quality.
+  m_Text: I believe I saw one on one of my morning walks through the forest south
+    east of here. It lay in the hollow of an enormous ancient tree. Its quality left
+    much to be desired so I let it rest in peace.
   bSManager: {fileID: 0}

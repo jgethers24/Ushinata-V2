@@ -21,7 +21,7 @@ public class InvenManager : MonoBehaviour
     public GameObject CardMenu;
     public GameObject CombatCardMenu;
     public GameObject MainMenu;
-
+    public GameObject customBar;
     public ItemSlot[] itemSlot;
     public EquipmentSlot[] equipmentSlot;
     public EquippedSlot[] equippedSlot;
@@ -88,7 +88,8 @@ public class InvenManager : MonoBehaviour
             cardQueuee.CrunchQueue();
             Scene currentScene = SceneManager.GetActiveScene();
             string sceneName = currentScene.name;
-            if (sceneName == "CombatScene2")
+            customBar = GameObject.Find("CustomBar");
+            if (sceneName == "CombatScene2" && customBar.GetComponent<CustomBarScript>().fullBar)
                 CombatCard();
         }
 
@@ -178,6 +179,9 @@ public class InvenManager : MonoBehaviour
             CardMenu.SetActive(false);
             CombatCardMenu.SetActive(false);
             deckShowing = false;
+
+            customBar.GetComponent<CustomBarScript>().Reset();
+            customBar.GetComponent<CustomBarScript>().Unpause();
         }
         else
         {
@@ -190,6 +194,8 @@ public class InvenManager : MonoBehaviour
             CombatCardMenu.SetActive(true);
             deckShowing = true;
             MainMenu.SetActive(false);
+
+            customBar.GetComponent<CustomBarScript>().Pause();
         }
     }
     public bool UseItem(string itemName)
