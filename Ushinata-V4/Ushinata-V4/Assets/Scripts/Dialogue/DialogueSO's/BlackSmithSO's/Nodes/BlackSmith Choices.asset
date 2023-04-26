@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7438a9dcceb8f48994917b99122246, type: 3}
+  m_Name: BlackSmith Choices
+  m_EditorClassIdentifier: 
+  m_DialogueLine: {fileID: 11400000, guid: 40ce103af64d8174a936493c935c285c, type: 2}
+  m_Choices:
+  - m_ChoicePreview: Sword
+    m_ChoiceNode: {fileID: 11400000, guid: d0543887f404ed946a1b7cf794185b81, type: 2}
+  - m_ChoicePreview: Staff
+    m_ChoiceNode: {fileID: 11400000, guid: a3fa23e69dd0eca459d33992f806ef0d, type: 2}
+  - m_ChoicePreview: Neither
+    m_ChoiceNode: {fileID: 11400000, guid: df91db7716405fa4fa875b5f7e407653, type: 2}

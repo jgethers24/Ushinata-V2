@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d961ba1c009b914084e9906dadf7407, type: 3}
+  m_Name: BlacksmithGoodbye
+  m_EditorClassIdentifier: 
+  m_Speaker: {fileID: 11400000, guid: ba84623977653c0408c60411e2eeb7d6, type: 2}
+  m_Text: Pizza pie good

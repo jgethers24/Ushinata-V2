@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -189,8 +189,8 @@ MonoBehaviour:
     y: 0
     width: 322
     height: 643
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -244,8 +244,8 @@ MonoBehaviour:
     y: 0
     width: 455
     height: 643
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -661,9 +661,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -41.775112, y: 31.419569, z: -373.5367}
+    m_Target: {x: -45.080807, y: 16.646242, z: -377.875}
     speed: 2
-    m_Value: {x: -41.775112, y: 31.419569, z: -373.5367}
+    m_Value: {x: -45.080807, y: 16.646242, z: -377.875}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -709,9 +709,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.25521874, y: -0.041216493, z: 0.011132689, w: 0.966005}
+    m_Target: {x: 0.27242485, y: 0.14875214, z: -0.042422906, w: 0.9497282}
     speed: 2
-    m_Value: {x: -0.25521874, y: 0.041216493, z: -0.011132689, w: -0.966005}
+    m_Value: {x: 0.27247104, y: 0.14731811, z: -0.042011578, w: 0.9498905}
   m_Size:
     m_Target: 35.335403
     speed: 2
@@ -778,7 +778,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 326a0000
       m_LastClickedID: 0
       m_ExpandedIDs: ecfaffff
       m_RenameOverlay:
@@ -883,7 +883,7 @@ MonoBehaviour:
       y: 21
       width: 1141
       height: 601
-    m_Scale: {x: 0.5564815, y: 0.5564815}
+    m_Scale: {x: 0.5564814, y: 0.5564815}
     m_Translation: {x: 570.5, y: 300.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -1141,22 +1141,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Terrain/Tom's Terrain Tools/Unity Terrain Assets
+    - Assets/StarterAssets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Terrain/Tom's Terrain Tools/Unity Terrain Assets
+  - Assets/StarterAssets
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\User\Desktop\Ushinata-V2\Ushinata-V3
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 189}
-    m_SelectedIDs: bca90000
-    m_LastClickedID: 43452
+    m_SelectedIDs: b4a90000
+    m_LastClickedID: 43444
     m_ExpandedIDs: 0000000060a90000b6a90000bea90000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
