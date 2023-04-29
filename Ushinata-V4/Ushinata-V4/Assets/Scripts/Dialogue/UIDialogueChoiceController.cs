@@ -19,6 +19,14 @@ public class UIDialogueChoiceController : MonoBehaviour
             m_ChoiceNextNode = value.ChoiceNode;
         }
     }
+    public ShopChoice ShopChoice
+    {
+        set
+        {
+            m_Choice.text = value.ChoicePreview;
+            m_ChoiceNextNode = value.ChoiceNode;
+        }
+    }
 
     private void Start()
     {

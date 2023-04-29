@@ -27,7 +27,8 @@ public class DialogueChoice
 public class ChoiceDialogueNode : DialogueNode
 {
     public static ChoiceDialogueNode myChoiceDialogueNode;
-    
+    [SerializeField]
+    public GameObject InventoryMenu;
 
     [SerializeField]
     private DialogueChoice[] m_Choices;
@@ -50,6 +51,10 @@ public class ChoiceDialogueNode : DialogueNode
 
     public override void Accept(DialogueNodeVisitor visitor)
     {
+        InventoryMenu = GameObject.Find("InventoryCanvas");
+
+        InventoryMenu.GetComponent<InvenManager>().CloseShop();
+
         visitor.Visit(this);
     }
 }

@@ -13,7 +13,7 @@ public class InvenManager : MonoBehaviour
             Debug.LogWarning("mor than 1 instance of inventory found!!!!!!!");
             return;
         }
-        instance = this;            
+        instance = this;
     }
 
     public GameObject InventoryMenu;
@@ -21,7 +21,8 @@ public class InvenManager : MonoBehaviour
     public GameObject CardMenu;
     public GameObject CombatCardMenu;
     public GameObject MainMenu;
-    public GameObject customBar;
+    public GameObject ShopMenu;
+
     public ItemSlot[] itemSlot;
     public EquipmentSlot[] equipmentSlot;
     public EquippedSlot[] equippedSlot;
@@ -45,15 +46,15 @@ public class InvenManager : MonoBehaviour
     void Update()
     {
 
-            
-        if (deckShowing == false)     
-        {        
+
+        if (deckShowing == false)
+        {
             if (cardQueue[0].slotInUse && !cardQueue[1].slotInUse || cardQueue[1].slotInUse && !cardQueue[2].slotInUse ||
                     cardQueue[2].slotInUse && !cardQueue[3].slotInUse || cardQueue[3].slotInUse && !cardQueue[4].slotInUse)
             {
                 Debug.Log("crunching");
                 cardQueuee.CrunchQueue();
-            }  
+            }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -67,7 +68,7 @@ public class InvenManager : MonoBehaviour
             if (sceneName == "StartingZone")
                 Inventory();
         }
-        
+
         if (Input.GetButtonDown("EquipmentMenu"))
         {
             Scene currentScene = SceneManager.GetActiveScene();
@@ -75,7 +76,7 @@ public class InvenManager : MonoBehaviour
             if (sceneName == "StartingZone")
                 Equipment();
         }
-            
+
         if (Input.GetButtonDown("CardMenu"))
         {
             Scene currentScene = SceneManager.GetActiveScene();
@@ -88,8 +89,7 @@ public class InvenManager : MonoBehaviour
             cardQueuee.CrunchQueue();
             Scene currentScene = SceneManager.GetActiveScene();
             string sceneName = currentScene.name;
-            customBar = GameObject.Find("CustomBar");
-            if (sceneName == "CombatScene2" && customBar.GetComponent<CustomBarScript>().fullBar)
+            if (sceneName == "CombatScene2")
                 CombatCard();
         }
 
@@ -110,7 +110,7 @@ public class InvenManager : MonoBehaviour
 
         }
     }
-    void Inventory()
+    public void Inventory()
     {
         if (InventoryMenu.activeSelf)
         {
@@ -128,6 +128,18 @@ public class InvenManager : MonoBehaviour
             CardMenu.SetActive(false);
             CombatCardMenu.SetActive(false);
         }
+    }
+    public void Shop()
+    {
+
+        ShopMenu.SetActive(true);
+
+    }
+    public void CloseShop()
+    {
+
+        ShopMenu.SetActive(false);
+
     }
     void Equipment()
     {
@@ -179,9 +191,6 @@ public class InvenManager : MonoBehaviour
             CardMenu.SetActive(false);
             CombatCardMenu.SetActive(false);
             deckShowing = false;
-
-            customBar.GetComponent<CustomBarScript>().Reset();
-            customBar.GetComponent<CustomBarScript>().Unpause();
         }
         else
         {
@@ -194,25 +203,23 @@ public class InvenManager : MonoBehaviour
             CombatCardMenu.SetActive(true);
             deckShowing = true;
             MainMenu.SetActive(false);
-
-            customBar.GetComponent<CustomBarScript>().Pause();
         }
     }
     public bool UseItem(string itemName)
     {
         for (int i = 0; i < itemSOs.Length; i++)
         {
-            if(itemSOs[i].itemName == itemName)
+            if (itemSOs[i].itemName == itemName)
             {
                 bool usable = itemSOs[i].UseItem();
                 return usable;
-            }          
+            }
         }
         return false;
     }
-    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription,ItemType itemType, GameObject itemObject)
+    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription, ItemType itemType, GameObject itemObject)
     {
-        if (itemType == ItemType.Consumable || itemType== ItemType.none || itemType == ItemType.collectible || itemType== ItemType.Card)
+        if (itemType == ItemType.Consumable || itemType == ItemType.none || itemType == ItemType.collectible || itemType == ItemType.Card)
         {
             if (itemType == ItemType.Card)
             {
@@ -223,14 +230,15 @@ public class InvenManager : MonoBehaviour
                         int leftOverItems = cardSlot[i].AddItem(itemName, quantity, itemSprite, itemDescription, itemType);//object ref
                         if (leftOverItems > 0)
                         {
-                            
+
                             leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType, itemObject); //object ref                 
                         }
                         return leftOverItems;
-                    }     
-                }return quantity;
+                    }
+                }
+                return quantity;
             }
-            else 
+            else
             {
                 for (int i = 0; i < itemSlot.Length; i++)
                 {
@@ -242,9 +250,10 @@ public class InvenManager : MonoBehaviour
                             leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription, itemType, itemObject);  //object ref              
                         }
                         return leftOverItems;
-                    }       
-                }          
-            }return quantity;
+                    }
+                }
+            }
+            return quantity;
         }
         else
         {
@@ -259,10 +268,11 @@ public class InvenManager : MonoBehaviour
                     }
                     return leftOverItems;
                 }
-            }          
-        }return quantity;
+            }
+        }
+        return quantity;
     }
-        
+
     public void DeselectAllSlots()
     {
         for (int i = 0; i < itemSlot.Length; i++)

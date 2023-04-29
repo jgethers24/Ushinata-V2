@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61ca16cf13cce9346a74db7651233eea, type: 3}
+  m_Name: ShopChoices
+  m_EditorClassIdentifier: 
+  m_DialogueLine: {fileID: 11400000, guid: c7181d5c20283764eaa5ff95789f3c40, type: 2}
+  InventoryMenu: {fileID: 0}
+  m_Choices:
+  - m_ChoicePreview: Back to blacksmith dialogue
+    m_ChoiceNode: {fileID: 11400000, guid: 9a2356f9798c799408569c060b4cfa59, type: 2}
+  - m_ChoicePreview: Close shop
+    m_ChoiceNode: {fileID: 11400000, guid: 4e15352d939355f4381ba38be401744f, type: 2}

@@ -74,6 +74,21 @@ public class UIDialogueTextBoxController : MonoBehaviour, DialogueNodeVisitor
         m_ListenToInput = true;
         m_NextNode = node.NextNode;
     }
+    public void Visit(ShopCloseNode node)
+    {
+        m_ListenToInput = true;
+        m_NextNode = node.NextNode;
+    }
+    public void Visit(ShopDialogueNode node)
+    {
+        m_ChoicesBoxTransform.gameObject.SetActive(true);
+
+        foreach (ShopChoice choice in node.Choices)
+        {
+            UIDialogueChoiceController newChoice = Instantiate(m_ChoiceControllerPrefab, m_ChoicesBoxTransform);
+            newChoice.ShopChoice = choice;
+        }
+    }
 
     public void Visit(ChoiceDialogueNode node)
     {
