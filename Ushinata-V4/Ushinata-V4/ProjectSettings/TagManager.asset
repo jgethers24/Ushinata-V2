@@ -16,6 +16,7 @@ TagManager:
   - Pickup1
   - Item
   - OverworldItemsAndEnemies
+  - GameMusic
   layers:
   - Default
   - TransparentFX
