@@ -60,8 +60,11 @@ public class DummyKaiAI : MonoBehaviour
     public position2TP L5;
     public position3TP L6;
     */
+
+    private Animator _animator;
     void Start()
     {
+        _animator = GetComponent<Animator>();
         /*
         TP1Location = TP1.transform.position;
         TP2Location = TP2.transform.position;
@@ -130,21 +133,24 @@ public class DummyKaiAI : MonoBehaviour
                 timer += Time.deltaTime;
 
                 //==========================================================================================================
-                if (timer > 1.4)
+                if (timer > 1.5)
                 {
                     if (PL1.GetComponent<position1TP>().l1 == true || PL4.GetComponent<position1TP>().l1 == true) // for each of the if statements the only thing different is i changed the if from 
                     {                                                                                             //if (L1.l1 == true || L4.l1 == true) to what they currently are
                         randomLocation = Random.Range(0, 2);
                         if (randomLocation == 1)
                         {
+                            _animator.SetTrigger("Shooting");
                             TeleportEnemy(TP1Location);
-                            shoot();
                             timer = 0;
+                            shoot();
                         }
                         else
                         {
+                            _animator.SetTrigger("Shooting");
                             TeleportEnemy(TP2Location);
                             timer = 0;
+                            
                             shoot();
                         }
                     }
@@ -153,13 +159,17 @@ public class DummyKaiAI : MonoBehaviour
                         randomLocation = Random.Range(0, 2);
                         if (randomLocation == 1)
                         {
+                            _animator.SetTrigger("Shooting");
                             TeleportEnemy(TP5Location);
+                            
                             timer = 0;
                             shoot();
                         }
                         else
                         {
+                            _animator.SetTrigger("Shooting");
                             TeleportEnemy(TP6Location);
+                            
                             timer = 0;
                             shoot();
                         }
@@ -169,13 +179,17 @@ public class DummyKaiAI : MonoBehaviour
                         randomLocation = Random.Range(0, 2);
                         if (randomLocation == 1)
                         {
+                            _animator.SetTrigger("Shooting");
                             TeleportEnemy(TP9Location);
+                            
                             timer = 0;
                             shoot();
                         }
                         else
                         {
+                            _animator.SetTrigger("Shooting");
                             TeleportEnemy(TP10Location);
+                            
                             timer = 0;
                             shoot();
                         }
@@ -248,6 +262,7 @@ public class DummyKaiAI : MonoBehaviour
                         {
                             tpCounter = randomLocation;
                             TeleportEnemy(TP1Location);
+                            _animator.SetTrigger("Shooting");
                             shoot();
                             timer = 0;
                         }
@@ -263,6 +278,7 @@ public class DummyKaiAI : MonoBehaviour
                         {
                             tpCounter = randomLocation;
                             TeleportEnemy(TP2Location);
+                            _animator.SetTrigger("Shooting");
                             shoot();
                             timer = 0;
                         }
@@ -278,6 +294,7 @@ public class DummyKaiAI : MonoBehaviour
                         {
                             tpCounter = randomLocation;
                             TeleportEnemy(TP5Location);
+                            _animator.SetTrigger("Shooting");
                             shoot();
                             timer = 0;
                         }
@@ -292,6 +309,7 @@ public class DummyKaiAI : MonoBehaviour
                         {
                             tpCounter = randomLocation;
                             TeleportEnemy(TP6Location);
+                            _animator.SetTrigger("Shooting");
                             shoot();
                             timer = 0;
                         }
@@ -306,6 +324,7 @@ public class DummyKaiAI : MonoBehaviour
                         {
                             tpCounter = randomLocation;
                             TeleportEnemy(TP9Location);
+                            _animator.SetTrigger("Shooting");
                             shoot();
                             timer = 0;
                         }
@@ -320,6 +339,7 @@ public class DummyKaiAI : MonoBehaviour
                         {
                             tpCounter = randomLocation;
                             TeleportEnemy(TP10Location);
+                            _animator.SetTrigger("Shooting");
                             shoot();
                             timer = 0;
                         }
