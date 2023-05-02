@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 10
   manaCost: 0
-  lifetime: 0.1
+  lifetime: 0.3
   speed: 1
   spellRadius: 0.2

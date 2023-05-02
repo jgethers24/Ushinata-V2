@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BlacksmithStaff
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: ba84623977653c0408c60411e2eeb7d6, type: 2}
-  m_Text: There was a fairly straight branch resembling a staff below the bridge.
-    That may be of assistance to someone of your..... financial situation.
+  m_Text: "Sorry. Staffs aren\u2019t my specialty. From what I\u2019ve heard, a staff
+    can be found lodged in a rock next to a waterfall west of here."
   bSManager: {fileID: 0}

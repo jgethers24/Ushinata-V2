@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: BlacksmithSword
   m_EditorClassIdentifier: 
   m_Speaker: {fileID: 11400000, guid: ba84623977653c0408c60411e2eeb7d6, type: 2}
-  m_Text: I believe I saw one on one of my morning walks through the forest south
-    east of here. It lay in the hollow of an enormous ancient tree. Its quality left
-    much to be desired so I let it rest in peace.
+  m_Text: "\u201CYou want a sword? I don\u2019t have one at the moment, but I heard
+    a rumor of a sword being inside a hollow tree just east of here."
   bSManager: {fileID: 0}

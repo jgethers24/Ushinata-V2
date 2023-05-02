@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: BlackSmith Choices
   m_EditorClassIdentifier: 
   m_DialogueLine: {fileID: 11400000, guid: 40ce103af64d8174a936493c935c285c, type: 2}
+  InventoryMenu: {fileID: 0}
   m_Choices:
   - m_ChoicePreview: Enter shop
     m_ChoiceNode: {fileID: 11400000, guid: 462993433a4f37c4984e078b5af758f3, type: 2}
   - m_ChoicePreview: Is there a staff nearby I might use?
     m_ChoiceNode: {fileID: 11400000, guid: a3fa23e69dd0eca459d33992f806ef0d, type: 2}
+  - m_ChoicePreview: Perhaps you have a spare sword?
+    m_ChoiceNode: {fileID: 11400000, guid: d0543887f404ed946a1b7cf794185b81, type: 2}
   - m_ChoicePreview: I want to test my myself
     m_ChoiceNode: {fileID: 11400000, guid: df91db7716405fa4fa875b5f7e407653, type: 2}

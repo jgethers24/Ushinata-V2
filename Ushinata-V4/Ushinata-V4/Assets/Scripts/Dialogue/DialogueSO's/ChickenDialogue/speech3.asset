@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d961ba1c009b914084e9906dadf7407, type: 3}
+  m_Name: speech3
+  m_EditorClassIdentifier: 
+  m_Speaker: {fileID: 11400000, guid: 3746beb0d344b1b4bb7016de1e8947f4, type: 2}
+  m_Text: In order to complete whatever business you may have in my fine abode I
+    will be assisting you.
+  bSManager: {fileID: 0}

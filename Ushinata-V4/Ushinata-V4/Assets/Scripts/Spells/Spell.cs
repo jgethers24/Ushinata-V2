@@ -46,7 +46,7 @@ public class Spell : MonoBehaviour
             enemyStats.TakeDamage(spellToCast.damageAmount);
             //Destroy(this.gameObject);
         }
-
-        Destroy(this.gameObject);
+        else if(!other.gameObject.CompareTag("Player"))
+            Destroy(this.gameObject);
     }
 }
