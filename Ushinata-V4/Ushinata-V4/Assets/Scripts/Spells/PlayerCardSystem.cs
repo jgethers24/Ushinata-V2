@@ -52,8 +52,10 @@ public class PlayerCardSystem : MonoBehaviour
     private Sprite emptySprite;
     public bool slotInUse;
     private string q4Name;
+    private Animator _animator;
     public void Start()
     {
+        _animator = GetComponent<Animator>();
         invenManager = GameObject.Find("InventoryCanvas").GetComponent<InvenManager>();
         cardSOLibrary = GameObject.Find("InventoryCanvas").GetComponent<CardSOLibrary>();
     }
@@ -81,6 +83,7 @@ public class PlayerCardSystem : MonoBehaviour
         }
         if (!castingMagic && blocking && !isblocking && (Time.timeScale == 1))
         {
+            _animator.Play("Block");
             Debug.Log("block");
             //Instantiate(blockObject);
             Instantiate(blockObject, blockPoint.position, blockPoint.rotation);
@@ -145,7 +148,7 @@ public class PlayerCardSystem : MonoBehaviour
 
         if (!castingMagic && isSpellCastHeldDown && hasEnoughMana && (Time.timeScale == 1))
         {
-
+            _animator.Play("Attack");
             castingMagic = true;
             currentMana -= spellManaCost;
             currentCastTimer = 0;

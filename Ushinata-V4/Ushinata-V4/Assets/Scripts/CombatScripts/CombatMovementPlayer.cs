@@ -9,10 +9,12 @@ public class CombatMovementPlayer : MonoBehaviour
     //[SerializeField]
     public float rayLength = 0.4f;
     public Transform Point;
-
+    private Animator combatAnim;
     public bool moving;
+
     private void Start()
     {
+        combatAnim = GetComponent<Animator>();
         Point.parent = null;
     }
     private void Update()
@@ -30,6 +32,7 @@ public class CombatMovementPlayer : MonoBehaviour
             {
                 if (!Physics.Raycast(transform.position, Vector3.left,rayLength))
                 {
+                    combatAnim.Play("Dash Left");
                     Point.position += Vector3.left;
                     moving = true;
                 }
@@ -39,6 +42,7 @@ public class CombatMovementPlayer : MonoBehaviour
             {
                 if (!Physics.Raycast(transform.position, Vector3.right, rayLength))
                 {
+                    combatAnim.Play("Dash Right");
                     Point.position += Vector3.right;
                     moving = true;
                 }
@@ -47,6 +51,7 @@ public class CombatMovementPlayer : MonoBehaviour
             {
                 if (!Physics.Raycast(transform.position, Vector3.forward, rayLength))
                 {
+                    combatAnim.Play("Dash Forward");
                     Point.position += Vector3.forward;
                     moving = true;
                 }
@@ -55,6 +60,7 @@ public class CombatMovementPlayer : MonoBehaviour
             {
                 if (!Physics.Raycast(transform.position, Vector3.back, rayLength))
                 {
+                    combatAnim.Play("Dash Back");
                     Point.position += Vector3.back;
                     moving = true;
                 }

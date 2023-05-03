@@ -20,7 +20,7 @@ public class PauseWindow : MonoBehaviour
         if (countDown == true)
         {
             countDownTimer += Time.unscaledDeltaTime;
-            if (countDownTimer >= 6f)
+            if (countDownTimer >= 4f)
             {
                 countDown.gameObject.SetActive(false);
                 Time.timeScale = 1;
