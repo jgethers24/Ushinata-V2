@@ -25,11 +25,13 @@ public class GameStart : MonoBehaviour
 
     void Start()
     {
-
         //needsEnemy = true;
         currentEnemy = GameObject.Find("DefaultEnemy");
         overworldObjects = GameObject.FindGameObjectWithTag("OverworldItemsAndEnemies");
         playerUI = GameObject.Find("UI");
+        player = GameObject.FindWithTag("Player"); 
+        player.GetComponent<Animator>().enabled = false; 
+        player.GetComponent<Animator>().enabled = true;
     }
 
     public void FindEnemy(GameObject enemy)
