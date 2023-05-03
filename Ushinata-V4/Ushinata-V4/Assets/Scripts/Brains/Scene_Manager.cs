@@ -29,6 +29,10 @@ public class Scene_Manager : MonoBehaviour
         SceneManager.LoadSceneAsync(0);
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
     public void Next_Scene()
     {
         Scene_index = SceneManager.GetActiveScene().buildIndex + 1;
