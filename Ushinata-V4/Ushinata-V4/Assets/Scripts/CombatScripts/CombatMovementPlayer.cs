@@ -28,7 +28,8 @@ public class CombatMovementPlayer : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, Point.position, speed * Time.deltaTime);
         if (Vector3.Distance(transform.position, Point.position) <= 0.5f)
         {
-            if (Input.GetKeyDown(KeyCode.A)&& !moving)
+            
+            if (Input.GetKeyDown(KeyCode.A)&& !moving && Point.transform.position.x> -1)
             {
                 if (!Physics.Raycast(transform.position, Vector3.left,rayLength))
                 {
@@ -38,7 +39,7 @@ public class CombatMovementPlayer : MonoBehaviour
                 }
                 //Point.position += Vector3.left;
             }
-            else if (Input.GetKeyDown(KeyCode.D) && !moving)
+            else if (Input.GetKeyDown(KeyCode.D) && !moving && Point.transform.position.x < 1)
             {
                 if (!Physics.Raycast(transform.position, Vector3.right, rayLength))
                 {
@@ -47,6 +48,7 @@ public class CombatMovementPlayer : MonoBehaviour
                     moving = true;
                 }
             }
+            /*
             else if (Input.GetKeyDown(KeyCode.W) && !moving)
             {
                 if (!Physics.Raycast(transform.position, Vector3.forward, rayLength))
@@ -65,6 +67,7 @@ public class CombatMovementPlayer : MonoBehaviour
                     moving = true;
                 }
             }
+            */
             /*
             if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
                 {
